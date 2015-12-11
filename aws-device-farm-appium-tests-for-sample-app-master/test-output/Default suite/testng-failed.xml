@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="Tests.Inputs.RadioButtonTest">
+        <methods>
+          <include name="testFirstRadio"/>
+          <include name="testSecondRadio"/>
+          <include name="setUpAppium"/>
+          <include name="testThirdRadio"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Inputs.RadioButtonTest -->
+      <class name="Tests.Inputs.SpinnerTest">
+        <methods>
+          <include name="checkIndex"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Inputs.SpinnerTest -->
+      <class name="Tests.Native.ImageGalleryTest">
+        <methods>
+          <include name="checkIfImageGalleryDisplayed"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Native.ImageGalleryTest -->
+      <class name="Tests.NestedViewsTest">
+        <methods>
+          <include name="testBackButton"/>
+          <include name="testUpButton"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.NestedViewsTest -->
+      <class name="Tests.WebViewTest">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="testWebView"/>
+        </methods>
+      </class> <!-- Tests.WebViewTest -->
+      <class name="Tests.Inputs.CheckboxTest">
+        <methods>
+          <include name="testCheckBox"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Inputs.CheckboxTest -->
+      <class name="Tests.Inputs.PullToRefreshTest">
+        <methods>
+          <include name="testPullToRefresh"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Inputs.PullToRefreshTest -->
+      <class name="Tests.Inputs.GesturesTest">
+        <methods>
+          <include name="navigateTo"/>
+          <include name="testSinglePress"/>
+          <include name="setUpPage"/>
+          <include name="testFling"/>
+          <include name="testLongPress"/>
+        </methods>
+      </class> <!-- Tests.Inputs.GesturesTest -->
+      <class name="Tests.LoginTest">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="loginFail"/>
+          <include name="loginSuccessFully"/>
+        </methods>
+      </class> <!-- Tests.LoginTest -->
+      <class name="Tests.Inputs.EditText">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="testTextBox"/>
+        </methods>
+      </class> <!-- Tests.Inputs.EditText -->
+      <class name="Tests.Inputs.ToggleButtonTest">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="turnViewOn"/>
+        </methods>
+      </class> <!-- Tests.Inputs.ToggleButtonTest -->
+      <class name="Tests.AlertPageTest">
+        <methods>
+          <include name="testAlertMessage"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.AlertPageTest -->
+      <class name="Tests.FixturesTest">
+        <methods>
+          <include name="testBluetoothOn"/>
+          <include name="setUpPage"/>
+          <include name="testNFCOn"/>
+          <include name="testWifiOn"/>
+          <include name="testGPSOn"/>
+        </methods>
+      </class> <!-- Tests.FixturesTest -->
+      <class name="Tests.Native.OutOfViewTest">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="scrollOutOfView"/>
+        </methods>
+      </class> <!-- Tests.Native.OutOfViewTest -->
+      <class name="Tests.Native.ScrollViewTest">
+        <methods>
+          <include name="setUpPage"/>
+          <include name="testScroll"/>
+        </methods>
+      </class> <!-- Tests.Native.ScrollViewTest -->
+      <class name="Tests.Native.MediaPlayerTest">
+        <methods>
+          <include name="testIfMediaPlayerIsPlaying"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Native.MediaPlayerTest -->
+      <class name="Tests.Native.CameraTest">
+        <methods>
+          <include name="testCameraStatus"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.Native.CameraTest -->
+      <class name="Tests.HomePageTest">
+        <methods>
+          <include name="testHomePageHeadline"/>
+          <include name="testHomePageSubheader"/>
+          <include name="setUpPage"/>
+        </methods>
+      </class> <!-- Tests.HomePageTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

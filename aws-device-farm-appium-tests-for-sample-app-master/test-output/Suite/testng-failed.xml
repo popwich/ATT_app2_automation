@@ -3,15 +3,13 @@
 <suite name="Failed suite [Suite]" parallel="none">
   <test name="Test(failed)" parallel="none">
     <classes>
-      <class name="Tests.HomePageTest">
+      <class name="Tests.ATT_HomePageTest">
         <methods>
-          <include name="testHomePageHeadline"/>
-          <include name="testHomePageSubheader"/>
           <include name="setUpAppium"/>
-          <include name="setUpPage"/>
-          <include name="navigateTo"/>
+          <include name="testATTHomePageHeadline"/>
+          <include name="testATTHambugerMenu"/>
         </methods>
-      </class> <!-- Tests.HomePageTest -->
+      </class> <!-- Tests.ATT_HomePageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

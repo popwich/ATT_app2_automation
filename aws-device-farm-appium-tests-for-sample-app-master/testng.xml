@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="none">
   <test name="Test">
     <classes>
-      <class name="Tests.HomePageTest"/>
+      <class name="Tests.ATT_HomePageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

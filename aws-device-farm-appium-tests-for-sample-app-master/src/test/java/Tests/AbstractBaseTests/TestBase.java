@@ -169,8 +169,8 @@ public abstract class TestBase {
      */
     @BeforeClass
     public void navigateTo() throws InterruptedException {
-        navigationPage = new NavigationPage(driver);
-        navigationPage.gotoCategory(getName());
+       // navigationPage = new NavigationPage(driver);
+       // navigationPage.gotoCategory(getName());
     }
 
     /**

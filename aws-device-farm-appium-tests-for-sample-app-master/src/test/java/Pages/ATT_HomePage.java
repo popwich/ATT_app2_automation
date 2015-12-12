@@ -50,7 +50,11 @@ public class ATT_HomePage extends BasePage{
 
     /**
      */
-    public void openHamburgerMenu() {
-        hamburger_menu.click();
+    public Boolean checkHamburgerMenu() {
+        if (hamburger_menu == null)
+        {
+        	return false;
+        }
+        else return true;
     }
 }

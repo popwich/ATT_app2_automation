@@ -7,7 +7,10 @@
         <methods>
           <include name="setUpAppium"/>
           <include name="testATTHomePageHeadline"/>
-          <include name="testATTHambugerMenu"/>
+          <include name="restartApp"/>
+          <include name="tearDownAppium"/>
+          <include name="setUpPage"/>
+          <include name="navigateTo"/>
         </methods>
       </class> <!-- Tests.ATT_HomePageTest -->
     </classes>

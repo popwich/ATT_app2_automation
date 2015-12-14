@@ -3,31 +3,16 @@
 <suite name="Failed suite [Suite]" parallel="none">
   <test name="Test(failed)" parallel="none">
     <classes>
-      <class name="Tests.ATT_HamburgerMenuPageTest">
+      <class name="Tests.ATT_DevicesPageTest">
         <methods>
-          <include name="testATTHambuger_menuREPORTEMERGENCY"/>
-          <include name="testATTHambuger_menuSignout"/>
-          <include name="testATTHambuger_menuDigitalLifeTour"/>
-          <include name="testATTHambuger_menuLegal"/>
-          <include name="testATTHambuger_menuPrograms"/>
-          <include name="testATTHambuger_menuSolutioncenter"/>
-          <include name="testATTHambuger_menuHome"/>
-          <include name="testATTHambuger_menuMyaccount"/>
           <include name="setUpAppium"/>
-          <include name="testATTHambuger_menuDevices"/>
-          <include name="setUpPage"/>
-          <include name="testATTHambuger_menuSystemsettings"/>
-          <include name="testATTHambuger_menuOtherservicesdevices"/>
-        </methods>
-      </class> <!-- Tests.ATT_HamburgerMenuPageTest -->
-      <class name="Tests.ATT_HomePageTest">
-        <methods>
-          <include name="testATTHomePageHeadline"/>
+          <include name="restartApp"/>
+          <include name="tearDownAppium"/>
           <include name="setUpPage"/>
           <include name="navigateTo"/>
-          <include name="testATTHambugerMenu"/>
+          <include name="testATT_DevicesPage_Tab4"/>
         </methods>
-      </class> <!-- Tests.ATT_HomePageTest -->
+      </class> <!-- Tests.ATT_DevicesPageTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

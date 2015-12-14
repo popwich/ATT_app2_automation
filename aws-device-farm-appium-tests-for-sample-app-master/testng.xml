@@ -5,6 +5,7 @@
     <classes>      
       <class name="Tests.ATT_HomePageTest"/>
       <class name="Tests.ATT_HamburgerMenuPageTest"/>
+      <class name="Tests.ATT_DevicesPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

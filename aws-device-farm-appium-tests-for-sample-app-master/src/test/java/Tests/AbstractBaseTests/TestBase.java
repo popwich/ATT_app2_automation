@@ -109,8 +109,8 @@ public abstract class TestBase {
     public void navigateTo() throws InterruptedException {
     	
         try {
-        	if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/acceptEULAButton").isDisplayed())
-            {driver.findElementById("com.att.digitallife.android.phoneCSJ:id/acceptEULAButton").click(); }
+        	if (driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").isDisplayed())
+            {driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").click(); }
        }
         catch (Exception e){
         	e.getMessage();
@@ -119,11 +119,11 @@ public abstract class TestBase {
         
         //login
         try {
-        	if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/userName").isDisplayed())
+        	if (driver.findElementById("com.att.digitallife.android.phone22:id/userName").isDisplayed())
             {        		
-        		driver.findElementById("com.att.digitallife.android.phoneCSJ:id/serverPicker").click(); 
+        		driver.findElementById("com.att.digitallife.android.phone22:id/serverPicker").click(); 
         		driver.findElementByName("QA1: qayqa33mickey").click(); 
-        		driver.findElementById("com.att.digitallife.android.phoneCSJ:id/button_sign_in").click(); 
+        		driver.findElementById("com.att.digitallife.android.phone22:id/button_sign_in").click(); 
         		System.out.println("Logged in succesfully.");          		       		
             }        	
         }
@@ -134,7 +134,7 @@ public abstract class TestBase {
         
     	  //clear ivPhotoview, whatsnew & notfication page
         try {
-        	if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/ivPhotoView").isDisplayed())
+        	if (driver.findElementById("com.att.digitallife.android.phone22:id/ivPhotoView").isDisplayed())
             {   
         		Dimension size = driver.manage().window().getSize(); 
         		int startx = (int) (size.width * 0.8); 
@@ -146,15 +146,15 @@ public abstract class TestBase {
         		Thread.sleep(1000);
         		driver.swipe(startx, starty, endx, starty, 1000);     
         		
-        		if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/btnGotIt").isDisplayed())
+        		if (driver.findElementById("com.att.digitallife.android.phone22:id/btnGotIt").isDisplayed())
         		{
-        			driver.findElementById("com.att.digitallife.android.phoneCSJ:id/btnGotIt").click();
+        			driver.findElementById("com.att.digitallife.android.phone22:id/btnGotIt").click();
         		}        		
         		System.out.println("ivPhotoView cleared succesfully.");   
         		
         		if (driver.findElementByName("What's New!").isDisplayed())
         		{
-        			driver.findElementById("com.att.digitallife.android.phoneCSJ:id/btnConfirmationDialogOK").click();
+        			driver.findElementById("com.att.digitallife.android.phone22:id/btnConfirmationDialogOK").click();
         		}        		
         		System.out.println("whatsnew page cleared succesfully.");   
         		
@@ -169,8 +169,7 @@ public abstract class TestBase {
         	e.getMessage();
         	System.out.println(e);   
         }       
-    
-    	
+       	
     	
        navigationPage = new NavigationPage(driver);
        navigationPage.gotoCategory(getName());

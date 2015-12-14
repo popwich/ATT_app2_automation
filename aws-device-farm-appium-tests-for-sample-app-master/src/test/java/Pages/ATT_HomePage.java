@@ -51,10 +51,6 @@ public class ATT_HomePage extends BasePage{
     /**
      */
     public Boolean checkHamburgerMenu() {
-        if (hamburger_menu == null)
-        {
-        	return false;
-        }
-        else return true;
+        return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
     }
 }

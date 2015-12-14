@@ -25,13 +25,16 @@ import org.openqa.selenium.WebElement;
  */
 public class NavigationPage extends BasePage{
 
-    private final String XPATH_CATEGORY_QUERY = "//*[contains(@resource-id,'drawer_row_title') and contains(@text,'%s')]";
+    //private final String XPATH_CATEGORY_QUERY = "//*[contains(@resource-id,'drawer_row_title') and contains(@text,'%s')]";
+    private final String XPATH_CATEGORY_QUERY = "//*[contains(@text,'%s')]";
     private final int TRIES = 5;
 
     /**
      * Get the toggle button
      */
-    @AndroidFindBy(uiAutomator = "new UiSelector().description(\"ReferenceApp\")")
+    //@AndroidFindBy(uiAutomator = "new UiSelector().description(\"ReferenceApp\")") //refapp finding toggle menu
+    //@AndroidFindBy(uiAutomator = "new UiSelector().resouceid(\"android:id/home\")") //att app2.0 finding hamburger menu also try: android:id/home
+    @AndroidFindBy(id = "android:id/home")
     private WebElement toggle;
 
     public NavigationPage(AppiumDriver driver) {
@@ -46,25 +49,28 @@ public class NavigationPage extends BasePage{
     public void gotoCategory(String categoryName) {
         int counter = 0;
         toggle.click();
-        try {
-            Thread.sleep(WaitConfig.DRAWER_ANIMATION_WAIT);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        WebElement categoryElement = null;
-
-        while (categoryElement == null) {
-            try {
-                counter++;
-                if (counter == TRIES)
-                    return;
-                categoryElement = driver.findElementByXPath(String.format(XPATH_CATEGORY_QUERY, categoryName));
-            } catch (NoSuchElementException e) {
-                driver.scrollTo(categoryName);
-            }
-        }
-
-        categoryElement.click();
-    }
+        
+        if (categoryName != "HamburgerMenu Page")  //do nothing if user intend to stay in hamburger menu page and test it
+		{		                   
+	        try {
+	            Thread.sleep(WaitConfig.DRAWER_ANIMATION_WAIT);
+	        } catch (InterruptedException e) {
+	            e.printStackTrace();
+	        }
+	
+	        WebElement categoryElement = null;
+	
+	        while (categoryElement == null) {
+	            try {
+	                counter++;
+	                if (counter == TRIES)
+	                    return;
+	                categoryElement = driver.findElementByXPath(String.format(XPATH_CATEGORY_QUERY, categoryName));
+	            } catch (NoSuchElementException e) {
+	            	driver.scrollTo(categoryName);
+	            	}                
+	            }
+	        categoryElement.click();
+		}
+	}
 }

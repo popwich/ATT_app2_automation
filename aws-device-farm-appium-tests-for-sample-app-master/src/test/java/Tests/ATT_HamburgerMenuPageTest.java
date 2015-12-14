@@ -27,8 +27,13 @@ import org.testng.annotations.Test;
  * Tests for HamburgerMenuPage
  */
 public class ATT_HamburgerMenuPageTest extends TestBase {
-        private ATT_HamburgerMenuPage ATT_HamburgerMenuPage;
-
+     private ATT_HamburgerMenuPage ATT_HamburgerMenuPage;
+     
+     @Override
+     public String getName() {
+         return "HamburgerMenu Page";
+     }
+     
     /**
      * Sets up att_hamburgermenupage
      */
@@ -94,10 +99,6 @@ public class ATT_HamburgerMenuPageTest extends TestBase {
     @Test
     public void testATTHambuger_menuLegal() {
        	Assert.assertTrue(ATT_HamburgerMenuPage.checkHamburger_menuLegal());
-    }
-    
-    @Override
-    public String getName() {
-        return "Home";
-    }
+    }   
+
 }

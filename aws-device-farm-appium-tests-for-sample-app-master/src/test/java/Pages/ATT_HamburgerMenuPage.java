@@ -23,8 +23,8 @@ import org.openqa.selenium.WebElement;
  * A page representing a static homepage
  */
 public class ATT_HamburgerMenuPage extends BasePage{
-
-    @AndroidFindBy(name = "abc")
+	
+    @AndroidFindBy(name = "Home")
     private WebElement menuHome;
 
     @AndroidFindBy(name = "Devices")

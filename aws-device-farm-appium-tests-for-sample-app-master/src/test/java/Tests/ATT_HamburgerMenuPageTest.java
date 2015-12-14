@@ -17,10 +17,12 @@ package Tests;
 
 import Pages.ATT_HomePage;
 import Pages.ATT_HamburgerMenuPage;
+import Pages.AlertPage;
 import Pages.HomePage;
 import Tests.AbstractBaseTests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.Test;
 
 /**
@@ -39,8 +41,8 @@ public class ATT_HamburgerMenuPageTest extends TestBase {
      */
     @BeforeTest
     @Override
-    public void setUpPage(){
-    	ATT_HamburgerMenuPage = new ATT_HamburgerMenuPage(driver);
+    public void setUpPage() {
+        ATT_HamburgerMenuPage = new ATT_HamburgerMenuPage(driver);
     }
 
     /**
@@ -99,6 +101,5 @@ public class ATT_HamburgerMenuPageTest extends TestBase {
     @Test
     public void testATTHambuger_menuLegal() {
        	Assert.assertTrue(ATT_HamburgerMenuPage.checkHamburger_menuLegal());
-    }   
-
-}
+    }
+ }

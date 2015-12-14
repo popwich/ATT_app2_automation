@@ -17,15 +17,15 @@
           <include name="testATTHambuger_menuDevices"/>
           <include name="setUpPage"/>
           <include name="testATTHambuger_menuSystemsettings"/>
-          <include name="navigateTo"/>
           <include name="testATTHambuger_menuOtherservicesdevices"/>
         </methods>
       </class> <!-- Tests.ATT_HamburgerMenuPageTest -->
       <class name="Tests.ATT_HomePageTest">
         <methods>
-          <include name="restartApp"/>
+          <include name="testATTHomePageHeadline"/>
           <include name="setUpPage"/>
           <include name="navigateTo"/>
+          <include name="testATTHambugerMenu"/>
         </methods>
       </class> <!-- Tests.ATT_HomePageTest -->
     </classes>

@@ -88,7 +88,26 @@ public abstract class TestBase {
 
         //Use a higher value if your mobile elements take time to show up
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        
+    }      
+      
+
+    /**
+     * Always remember to quit
+     */
+    @AfterSuite
+    public void tearDownAppium(){
+        driver.quit();
+    }
+
+    /**
+     *
+     *  Creates a navigation page and navigates to the Class' category
+     *  within the navigation drawer
+     *
+     */
+    @BeforeClass
+    public void navigateTo() throws InterruptedException {
+    	
         try {
         	if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/acceptEULAButton").isDisplayed())
             {driver.findElementById("com.att.digitallife.android.phoneCSJ:id/acceptEULAButton").click(); }
@@ -113,8 +132,7 @@ public abstract class TestBase {
         	System.out.println(e);   
         }    
         
-        
-        //clear ivPhotoview, whatsnew & notfication page
+    	  //clear ivPhotoview, whatsnew & notfication page
         try {
         	if (driver.findElementById("com.att.digitallife.android.phoneCSJ:id/ivPhotoView").isDisplayed())
             {   
@@ -151,24 +169,9 @@ public abstract class TestBase {
         	e.getMessage();
         	System.out.println(e);   
         }       
-    }
-
-    /**
-     * Always remember to quit
-     */
-    @AfterSuite
-    public void tearDownAppium(){
-        driver.quit();
-    }
-
-    /**
-     *
-     *  Creates a navigation page and navigates to the Class' category
-     *  within the navigation drawer
-     *
-     */
-    @BeforeClass
-    public void navigateTo() throws InterruptedException {
+    
+    	
+    	
        navigationPage = new NavigationPage(driver);
        navigationPage.gotoCategory(getName());
     }
@@ -179,7 +182,6 @@ public abstract class TestBase {
      */
     @AfterClass
     public void restartApp() {
-        //driver.resetApp();
-    
+        driver.resetApp();
     }
 }

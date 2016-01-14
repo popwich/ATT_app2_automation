@@ -15,7 +15,7 @@
 
 package Tests;
 
-import Pages.ATT_DevicesPage;
+import Pages.ATT_SystemSettingsPage;
 import Tests.AbstractBaseTests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
@@ -25,67 +25,57 @@ import org.testng.annotations.Test;
 /**
  * Tests for Devices page
  */
-public class ATT_DevicesPageTest extends TestBase {
-     private ATT_DevicesPage ATT_DevicesPage;
+public class ATT_SystemSettingsPageTest extends TestBase {
+     private ATT_SystemSettingsPage ATT_SystemSettingsPage;
      
      @Override
      public String getName() {
-         return "Devices";
+         return "System settings";
      }
      
     /**
-     * Sets up Devices page
+     * Sets up SystemSettings page
      */
     @BeforeTest
     @Override
     public void setUpPage() {
-    	ATT_DevicesPage = new ATT_DevicesPage(driver);
+    	ATT_SystemSettingsPage = new ATT_SystemSettingsPage(driver);
     }
 
     /**
      * Asserts the Devices page tab exists
      */
     @Test
-    public void testATT_DevicesPage_Tab1_checkonly() {
-       	Assert.assertTrue(ATT_DevicesPage.checkTab(1));   	
+    public void ATT_SystemSettingsPage_Tab1_checkonly() {
+       	Assert.assertTrue(ATT_SystemSettingsPage.checkTab(1));   	
     }
     
     @Test
-    public void testATT_DevicesPage_Tab2_checkonly() {
-       	Assert.assertTrue(ATT_DevicesPage.checkTab(2));
+    public void ATT_SystemSettingsPage_Tab2_checkonly() {
+       	Assert.assertTrue(ATT_SystemSettingsPage.checkTab(2));
     }       
     
     @Test
-    public void testATT_DevicesPage_Tab3_checkonly() {
-       	Assert.assertTrue(ATT_DevicesPage.checkTab(3));
-    }    
- 
-    @Test
-    public void testATT_DevicesPage_Tab4_checkonly() {
-       	Assert.assertTrue(ATT_DevicesPage.checkTab(4));
-    }
-   
+    public void ATT_SystemSettingsPage_Tab3_checkonly() {
+       	Assert.assertTrue(ATT_SystemSettingsPage.checkTab(3));
+    }     
+       
     /**
-     * Asserts the Devices page tab can be selected
+     * Asserts the System settings page tab can be selected
      */
     @Test
     public void testATT_DevicesPage_Tab1_selectcheck() {
-       	Assert.assertTrue(ATT_DevicesPage.selectCheckTab(1));    
+       	Assert.assertTrue(ATT_SystemSettingsPage.selectCheckTab(1));    
     }
     
     @Test
-    public void testATT_DevicesPage_Tab2_selectcheck() {
-       	Assert.assertTrue(ATT_DevicesPage.selectCheckTab(2));
+    public void testATT_SystemSettingsPage_Tab2_selectcheck() {
+       	Assert.assertTrue(ATT_SystemSettingsPage.selectCheckTab(2));
     }       
     
     @Test
-    public void testATT_DevicesPage_Tab3_selectcheck() {
-       	Assert.assertTrue(ATT_DevicesPage.selectCheckTab(3));
-    }    
- 
-    @Test
-    public void testATT_DevicesPage_Tab4_selectcheck() {
-       	Assert.assertTrue(ATT_DevicesPage.selectCheckTab(4));
-    }
+    public void testATT_SystemSettingsPage_Tab3_selectcheck() {
+       	Assert.assertTrue(ATT_SystemSettingsPage.selectCheckTab(3));
+    }        
    
  }

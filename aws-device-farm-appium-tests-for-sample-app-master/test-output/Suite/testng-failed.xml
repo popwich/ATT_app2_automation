@@ -3,16 +3,13 @@
 <suite name="Failed suite [Suite]" parallel="none">
   <test name="Test(failed)" parallel="none">
     <classes>
-      <class name="Tests.ATT_DevicesPageTest">
+      <class name="Tests.ATT_LoginTest">
         <methods>
           <include name="setUpAppium"/>
-          <include name="restartApp"/>
-          <include name="tearDownAppium"/>
-          <include name="setUpPage"/>
-          <include name="navigateTo"/>
-          <include name="testATT_DevicesPage_Tab4"/>
+          <include name="loginSuccessFully"/>
+          <include name="loginFail"/>
         </methods>
-      </class> <!-- Tests.ATT_DevicesPageTest -->
+      </class> <!-- Tests.ATT_LoginTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

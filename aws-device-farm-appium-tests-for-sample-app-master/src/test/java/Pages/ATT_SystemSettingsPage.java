@@ -24,49 +24,42 @@ import org.openqa.selenium.WebElement;
 /**
  * A page representing a static homepage
  */
-public class ATT_DevicesPage extends BasePage{
+public class ATT_SystemSettingsPage extends BasePage{
 	
-    @AndroidFindBy(name = "All devices")
-    private WebElement Tab_Alldevices;
+    @AndroidFindBy(name = "Overview")
+    private WebElement Tab_Overview;
 
-    @AndroidFindBy(name = "Cameras")
-    private WebElement Tab_Cameras;
+    @AndroidFindBy(name = "Global preferences")
+    private WebElement Tab_Globalpreferences;
  
-    @AndroidFindBy(name = "Device log")
-    private WebElement Tab_Devicelog;
+    @AndroidFindBy(name = "User profiles")
+    private WebElement Tab_Userprofiles;
     
-    @AndroidFindBy(name = "Device settings")
-    private WebElement Tab_Devicesettings;
-    
-    public ATT_DevicesPage(AppiumDriver driver) {
+    public ATT_SystemSettingsPage(AppiumDriver driver) {
         super(driver);
     }
     
     public Boolean checkTab(int tab_no) {
     	switch (tab_no) {
         case 1:  
-        	return (Tab_Alldevices.isDisplayed() && Tab_Alldevices.isEnabled());
+        	return (Tab_Overview.isDisplayed() && Tab_Overview.isEnabled());
         case 2:
-        	return (Tab_Cameras.isDisplayed() && Tab_Cameras.isEnabled());
+        	return (Tab_Globalpreferences.isDisplayed() && Tab_Globalpreferences.isEnabled());
         case 3:
-        	return (Tab_Devicelog.isDisplayed() && Tab_Devicelog.isEnabled());
-        case 4:
-        	return (Tab_Devicesettings.isDisplayed() && Tab_Devicesettings.isEnabled());	    
-    	}
+        	return (Tab_Userprofiles.isDisplayed() && Tab_Userprofiles.isEnabled());
+       }
     	return null;
     } 
     
     public Boolean selectCheckTab(int tab_no){
     	switch (tab_no) {
-        case 1:  Tab_Alldevices.click();
-        	return Tab_Alldevices.isSelected();
-        case 2: Tab_Cameras.click();
-        	return Tab_Cameras.isSelected();
-        case 3: Tab_Devicelog.click();
-    		return Tab_Devicelog.isSelected();
-        case 4: Tab_Devicesettings.click();
-			return Tab_Devicesettings.isSelected();
-    	}
+        case 1:  Tab_Overview.click();
+        	return Tab_Overview.isSelected();
+        case 2: Tab_Globalpreferences.click();
+        	return Tab_Globalpreferences.isSelected();
+        case 3: Tab_Userprofiles.click();
+    		return Tab_Userprofiles.isSelected();
+     	}
 		return null;
     }
  }

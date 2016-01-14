@@ -53,4 +53,13 @@ public class ATT_HomePage extends BasePage{
     public Boolean checkHamburgerMenu() {
         return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
     }
+    
+   
+    /**
+    *
+    * @return the hamburger page
+    */   
+    public ATT_HamburgerMenuPage returnHamburgerMenuPage(){
+	   return new ATT_HamburgerMenuPage(driver);
+   }
 }

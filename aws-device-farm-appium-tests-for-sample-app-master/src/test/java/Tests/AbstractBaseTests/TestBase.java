@@ -132,7 +132,7 @@ public abstract class TestBase {
         	System.out.println(e);   
         }    
         
-    	  //clear ivPhotoview, whatsnew & notfication page
+    	  //clear ivPhotoview, whatsnew & notification page
         try {
         	if (driver.findElementById("com.att.digitallife.android.phone22:id/ivPhotoView").isDisplayed())
             {   
@@ -169,8 +169,7 @@ public abstract class TestBase {
         	e.getMessage();
         	System.out.println(e);   
         }       
-       	
-    	
+       	    	
        navigationPage = new NavigationPage(driver);
        navigationPage.gotoCategory(getName());
     }

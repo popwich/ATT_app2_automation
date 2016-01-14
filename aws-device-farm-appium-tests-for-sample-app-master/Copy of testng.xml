@@ -2,25 +2,11 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="none">
   <test name="Test">
-    <classes>
-      <class name="Tests.Inputs.ToggleButtonTest"/>
-      <class name="Tests.Inputs.GesturesTest"/>
-      <class name="Tests.Inputs.PullToRefreshTest"/>
-      <class name="Tests.Native.ScrollViewTest"/>
-      <class name="Tests.LoginTest"/>
-      <class name="Tests.FixturesTest"/>
-      <class name="Tests.Native.CameraTest"/>
-      <class name="Tests.AlertPageTest"/>
-      <class name="Tests.Inputs.RadioButtonTest"/>
-      <class name="Tests.Native.MediaPlayerTest"/>
-      <class name="Tests.Native.ImageGalleryTest"/>
-      <class name="Tests.Inputs.SpinnerTest"/>
-      <class name="Tests.Inputs.EditText"/>
-      <class name="Tests.Inputs.CheckboxTest"/>
-      <class name="Tests.WebViewTest"/>
-      <class name="Tests.NestedViewsTest"/>
-      <class name="Tests.Native.OutOfViewTest"/>
-      <class name="Tests.HomePageTest"/>
+    <classes>      
+      <class name="Tests.ATT_HomePageTest"/>
+      <class name="Tests.ATT_HamburgerMenuPageTest"/>
+      <class name="Tests.ATT_DevicesPageTest"/>
+      <class name="Tests.ATT_SystemSettingsPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

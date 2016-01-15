@@ -1,8 +1,11 @@
 package Tests;
 
+import Pages.ATT_EnterPinPage;
 import Pages.ATT_HamburgerMenuPage;
+import Pages.ATT_HamburgerMenuPage_alarmtab_expanded;
 import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
+import Pages.ATT_SystemCannotTurnOnPage;
 import Tests.AbstractBaseTests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -17,6 +20,10 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_LoginPage loginPage;
     private ATT_HomePage homePage;
     private ATT_HamburgerMenuPage hamburgerMenuPage;
+    private ATT_HamburgerMenuPage_alarmtab_expanded hamburgerMenuPage_alarmtab_expanded;
+    private ATT_EnterPinPage enterPinPage;
+    private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
+    
 
     @Override
     public String getName() {
@@ -74,8 +81,42 @@ public class ATT_ForeseeTest extends TestBase {
     	     homePage.pressMenu();
     	     hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
 		     if (hamburgerMenuPage.isArmed()) {
-		    	 
+		    	 hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		    	 
 		     }
+		     
+		     //enter pin
+	    	 enterPinPage = hamburgerMenuPage_alarmtab_expanded.returnEnterPinPage();
+	    	 try {
+	    		 if (enterPinPage.isCurrentPage()) //enterpin page appeared
+	    		 	enterPinPage.enterDigit(1);
+	    		 	enterPinPage.enterDigit(2);
+	    		 	enterPinPage.enterDigit(3);
+	    		 	enterPinPage.enterDigit(4);
+	    		    System.out.println("pin 1234 entered");  
+	    		    systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
+	    		   
+	    		    if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appreared
+	    			   systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
+	    		    }
+		    	}
+		    	catch (Exception e){
+		         	e.getMessage();
+		         	System.out.println(e);
+		        }	  
+	    	 
+	    	 //verify arming process is in progress
+	    	 try {
+	    	 if (hamburgerMenuPage.isArming()) {
+	    			 System.out.println("arming in progress...");
+	    		 }
+	    	 }
+	    	 catch (Exception e){
+		         	e.getMessage();
+		         	System.out.println(e);
+		     }	 
+	    	 
+	    	 //wait for foresee survey
+	    	 	    	 
     	}           
     }
 

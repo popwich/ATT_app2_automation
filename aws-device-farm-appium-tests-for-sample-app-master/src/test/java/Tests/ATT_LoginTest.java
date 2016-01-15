@@ -74,7 +74,7 @@ public class ATT_LoginTest extends TestBase {
      * Tests logging in with valid credentials by verifying if the login message is correct
      */
     @Test
-    public void loginSuccessFully(){
+    public void login1_SuccessFully(){
         loginPage.loginInByStoredCredential();
         homePage = loginPage.returnHomePage();   
         Assert.assertTrue(homePage.checkHamburgerMenu());
@@ -84,43 +84,30 @@ public class ATT_LoginTest extends TestBase {
     /**
      * Tests logging in with invalid credentials by verifying if the error message is correct
      */
-/*    @Test
-    public void loginFail() {
+    @Test
+    public void login2_Fail() {
         loginPage.loginIn(FAIL_USER_NAME, FAIL_PASSWORD);     
         Assert.assertTrue(true);
         System.out.println("loginFail test done");
-    }*/
+    }
 
     /**
-     * After each test method, logout or try again
+     * After each test method, logout
      */
     @AfterMethod
     public void logOut(){        
-		//lee tbd add sign-out steps
         //logout
-    	try {
-	    	homePage.pressMenu();
-	    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
-	    	hamburgerMenuPage.signout();
+    	if (!loginPage.checkIfBackAtLogin())
+    	{
+	    	try {
+		    	homePage.pressMenu();
+		    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
+		    	hamburgerMenuPage.signout();
+	    	}
+	    	catch (Exception e){
+	         	e.getMessage();
+	         	System.out.println(e);
+	        }	      
     	}
-    	catch (Exception e){
-         	e.getMessage();
-         	System.out.println(e);   
-         }     
-    	
-      /*  try {
-        	if (driver.findElementById("android:id/home").isDisplayed())
-            {        		
-        		driver.findElementById("android:id/home").click(); 
-        		driver.findElementByName("Sign out").click(); 
-        		System.out.println("Logged out succesfully.");          		       		
-            }        	
-        }
-        catch (Exception e){
-        	e.getMessage();
-        	System.out.println(e);   
-        }   */
-        
-        Assert.assertTrue(loginPage.checkIfBackAtLogin());
     }
 }

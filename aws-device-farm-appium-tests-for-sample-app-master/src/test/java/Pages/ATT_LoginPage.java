@@ -121,7 +121,14 @@ public class ATT_LoginPage extends BasePage {
      * @return is back at login
      */
     public boolean checkIfBackAtLogin(){
-        return loginButton.isDisplayed() && userNameField.isDisplayed() && passwordField.isDisplayed();
+    	try {
+    		return loginButton.isDisplayed();
+    	}
+    	catch (Exception e){
+         	e.getMessage();
+         	System.out.println(e);
+         	return false;
+        }
     }
 
     /**

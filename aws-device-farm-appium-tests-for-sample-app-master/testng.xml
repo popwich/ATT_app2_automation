@@ -4,10 +4,7 @@
   <test name="Test">
     <classes>      
       <class name="Tests.ATT_LoginTest"/>
-       <class name="Tests.ATT_HomePageTest"/>
-      <class name="Tests.ATT_HamburgerMenuPageTest"/>
-      <class name="Tests.ATT_DevicesPageTest"/>
-      <class name="Tests.ATT_SystemSettingsPageTest"/>
+
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

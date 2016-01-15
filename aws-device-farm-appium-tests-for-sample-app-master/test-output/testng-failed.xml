@@ -5,9 +5,13 @@
     <classes>
       <class name="Tests.ATT_LoginTest">
         <methods>
+          <include name="navigateTo"/>
+          <include name="setUpPage"/>
           <include name="setUpAppium"/>
+          <include name="logOut"/>
+          <include name="restartApp"/>
+          <include name="tearDownAppium"/>
           <include name="loginSuccessFully"/>
-          <include name="loginFail"/>
         </methods>
       </class> <!-- Tests.ATT_LoginTest -->
     </classes>

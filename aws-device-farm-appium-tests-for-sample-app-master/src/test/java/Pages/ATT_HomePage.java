@@ -55,11 +55,16 @@ public class ATT_HomePage extends BasePage{
     }
     
    
+	public void pressMenu() {
+		hamburger_menu.click();		
+	}
+	
+	
     /**
     *
     * @return the hamburger page
     */   
-    public ATT_HamburgerMenuPage returnHamburgerMenuPage(){
+    public Pages.ATT_HamburgerMenuPage returnHamburgerMenuPage(){
 	   return new ATT_HamburgerMenuPage(driver);
    }
 }

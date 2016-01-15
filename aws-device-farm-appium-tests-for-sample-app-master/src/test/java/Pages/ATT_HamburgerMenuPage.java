@@ -104,5 +104,9 @@ public class ATT_HamburgerMenuPage extends BasePage{
     public Boolean checkHamburger_menuLegal() {
         return menuLegal.isDisplayed();
     }
+    
+    public void signout() {
+         menuSignout.click();
+    }
 }
 

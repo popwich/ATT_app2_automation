@@ -1,213 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="29" passed="29">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="197209" started-at="2016-01-14T23:47:49Z" finished-at="2016-01-14T23:51:06Z">
+  <suite name="Suite" duration-ms="26716" started-at="2016-01-15T00:19:58Z" finished-at="2016-01-15T00:20:25Z">
     <groups>
     </groups>
-    <test name="Test" duration-ms="197209" started-at="2016-01-14T23:47:49Z" finished-at="2016-01-14T23:51:06Z">
-      <class name="Tests.ATT_HamburgerMenuPageTest">
-        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="navigateTo" is-config="true" duration-ms="20217" started-at="2016-01-14T18:49:12Z" finished-at="2016-01-14T18:49:32Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateTo -->
-        <test-method status="PASS" signature="testATTHambuger_menuDevices()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuDevices" duration-ms="1117" started-at="2016-01-14T18:49:32Z" finished-at="2016-01-14T18:49:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuDevices -->
-        <test-method status="PASS" signature="testATTHambuger_menuDigitalLifeTour()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuDigitalLifeTour" duration-ms="165" started-at="2016-01-14T18:49:33Z" finished-at="2016-01-14T18:49:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuDigitalLifeTour -->
-        <test-method status="PASS" signature="testATTHambuger_menuHome()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuHome" duration-ms="155" started-at="2016-01-14T18:49:33Z" finished-at="2016-01-14T18:49:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuHome -->
-        <test-method status="PASS" signature="testATTHambuger_menuLegal()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuLegal" duration-ms="236" started-at="2016-01-14T18:49:33Z" finished-at="2016-01-14T18:49:33Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuLegal -->
-        <test-method status="PASS" signature="testATTHambuger_menuMyaccount()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuMyaccount" duration-ms="158" started-at="2016-01-14T18:49:33Z" finished-at="2016-01-14T18:49:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuMyaccount -->
-        <test-method status="PASS" signature="testATTHambuger_menuOtherservicesdevices()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuOtherservicesdevices" duration-ms="214" started-at="2016-01-14T18:49:34Z" finished-at="2016-01-14T18:49:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuOtherservicesdevices -->
-        <test-method status="PASS" signature="testATTHambuger_menuPrograms()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuPrograms" duration-ms="151" started-at="2016-01-14T18:49:34Z" finished-at="2016-01-14T18:49:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuPrograms -->
-        <test-method status="PASS" signature="testATTHambuger_menuREPORTEMERGENCY()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuREPORTEMERGENCY" duration-ms="514" started-at="2016-01-14T18:49:34Z" finished-at="2016-01-14T18:49:34Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuREPORTEMERGENCY -->
-        <test-method status="PASS" signature="testATTHambuger_menuSignout()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuSignout" duration-ms="540" started-at="2016-01-14T18:49:34Z" finished-at="2016-01-14T18:49:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuSignout -->
-        <test-method status="PASS" signature="testATTHambuger_menuSolutioncenter()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuSolutioncenter" duration-ms="486" started-at="2016-01-14T18:49:35Z" finished-at="2016-01-14T18:49:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuSolutioncenter -->
-        <test-method status="PASS" signature="testATTHambuger_menuSystemsettings()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="testATTHambuger_menuSystemsettings" duration-ms="205" started-at="2016-01-14T18:49:36Z" finished-at="2016-01-14T18:49:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambuger_menuSystemsettings -->
-        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="restartApp" is-config="true" duration-ms="4952" started-at="2016-01-14T18:49:36Z" finished-at="2016-01-14T18:49:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restartApp -->
-      </class> <!-- Tests.ATT_HamburgerMenuPageTest -->
+    <test name="Test" duration-ms="26716" started-at="2016-01-15T00:19:58Z" finished-at="2016-01-15T00:20:25Z">
       <class name="Tests.ATT_LoginTest">
-        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="navigateTo" is-config="true" duration-ms="1847" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateTo -->
-        <test-method status="PASS" signature="loginFail()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="loginFail" duration-ms="12544" started-at="2016-01-14T18:47:51Z" finished-at="2016-01-14T18:48:03Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginFail -->
-        <test-method status="PASS" signature="logOut()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="logOut" is-config="true" duration-ms="15733" started-at="2016-01-14T18:48:03Z" finished-at="2016-01-14T18:48:19Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method status="PASS" signature="loginSuccessFully()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="loginSuccessFully" duration-ms="16957" started-at="2016-01-14T18:48:19Z" finished-at="2016-01-14T18:48:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- loginSuccessFully -->
-        <test-method status="PASS" signature="logOut()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="logOut" is-config="true" duration-ms="2496" started-at="2016-01-14T18:48:36Z" finished-at="2016-01-14T18:48:38Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- logOut -->
-        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="restartApp" is-config="true" duration-ms="4701" started-at="2016-01-14T18:48:38Z" finished-at="2016-01-14T18:48:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restartApp -->
-      </class> <!-- Tests.ATT_LoginTest -->
-      <class name="Tests.ATT_DevicesPageTest">
-        <test-method status="PASS" signature="setUpAppium()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="setUpAppium" is-config="true" duration-ms="16993" started-at="2016-01-14T18:47:32Z" finished-at="2016-01-14T18:47:49Z">
+        <test-method status="PASS" signature="setUpAppium()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="setUpAppium" is-config="true" duration-ms="782" started-at="2016-01-14T19:19:57Z" finished-at="2016-01-14T19:19:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpAppium -->
-        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="setUpPage" is-config="true" duration-ms="236" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:49Z">
+        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="setUpPage" is-config="true" duration-ms="277" started-at="2016-01-14T19:19:58Z" finished-at="2016-01-14T19:19:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpPage -->
-        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_HamburgerMenuPageTest@614c5515]" name="setUpPage" is-config="true" duration-ms="6" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpPage -->
-        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_HomePageTest@2d554825]" name="setUpPage" is-config="true" duration-ms="3" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpPage -->
-        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_LoginTest@77b52d12]" name="setUpPage" is-config="true" duration-ms="2" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpPage -->
-        <test-method status="PASS" signature="setUpPage()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="setUpPage" is-config="true" duration-ms="2" started-at="2016-01-14T18:47:49Z" finished-at="2016-01-14T18:47:49Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setUpPage -->
-        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="navigateTo" is-config="true" duration-ms="22827" started-at="2016-01-14T18:49:41Z" finished-at="2016-01-14T18:50:03Z">
+        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="navigateTo" is-config="true" duration-ms="519" started-at="2016-01-14T19:19:58Z" finished-at="2016-01-14T19:19:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateTo -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab1_checkonly()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab1_checkonly" duration-ms="2791" started-at="2016-01-14T18:50:03Z" finished-at="2016-01-14T18:50:06Z">
+        <test-method status="PASS" signature="loginSuccessFully()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="loginSuccessFully" duration-ms="18186" started-at="2016-01-14T19:19:59Z" finished-at="2016-01-14T19:20:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab1_checkonly -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab1_selectcheck()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab1_selectcheck" duration-ms="3802" started-at="2016-01-14T18:50:06Z" finished-at="2016-01-14T18:50:10Z">
+        </test-method> <!-- loginSuccessFully -->
+        <test-method status="PASS" signature="logOut()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="logOut" is-config="true" duration-ms="2541" started-at="2016-01-14T19:20:17Z" finished-at="2016-01-14T19:20:20Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab1_selectcheck -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab2_checkonly()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab2_checkonly" duration-ms="635" started-at="2016-01-14T18:50:10Z" finished-at="2016-01-14T18:50:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab2_checkonly -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab2_selectcheck()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab2_selectcheck" duration-ms="1324" started-at="2016-01-14T18:50:11Z" finished-at="2016-01-14T18:50:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab2_selectcheck -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab3_checkonly()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab3_checkonly" duration-ms="341" started-at="2016-01-14T18:50:12Z" finished-at="2016-01-14T18:50:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab3_checkonly -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab3_selectcheck()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab3_selectcheck" duration-ms="1396" started-at="2016-01-14T18:50:12Z" finished-at="2016-01-14T18:50:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab3_selectcheck -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab4_checkonly()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab4_checkonly" duration-ms="478" started-at="2016-01-14T18:50:14Z" finished-at="2016-01-14T18:50:14Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab4_checkonly -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab4_selectcheck()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="testATT_DevicesPage_Tab4_selectcheck" duration-ms="1555" started-at="2016-01-14T18:50:14Z" finished-at="2016-01-14T18:50:16Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab4_selectcheck -->
-        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="restartApp" is-config="true" duration-ms="4445" started-at="2016-01-14T18:50:16Z" finished-at="2016-01-14T18:50:20Z">
+        </test-method> <!-- logOut -->
+        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="restartApp" is-config="true" duration-ms="5177" started-at="2016-01-14T19:20:20Z" finished-at="2016-01-14T19:20:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- restartApp -->
-        <test-method status="PASS" signature="tearDownAppium()[pri:0, instance:Tests.ATT_DevicesPageTest@4e04a765]" name="tearDownAppium" is-config="true" duration-ms="1105" started-at="2016-01-14T18:51:06Z" finished-at="2016-01-14T18:51:07Z">
+        <test-method status="PASS" signature="tearDownAppium()[pri:0, instance:Tests.ATT_LoginTest@5f2050f6]" name="tearDownAppium" is-config="true" duration-ms="1108" started-at="2016-01-14T19:20:25Z" finished-at="2016-01-14T19:20:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownAppium -->
-      </class> <!-- Tests.ATT_DevicesPageTest -->
-      <class name="Tests.ATT_SystemSettingsPageTest">
-        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="navigateTo" is-config="true" duration-ms="22253" started-at="2016-01-14T18:50:20Z" finished-at="2016-01-14T18:50:43Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateTo -->
-        <test-method status="PASS" signature="ATT_SystemSettingsPage_Tab1_checkonly()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="ATT_SystemSettingsPage_Tab1_checkonly" duration-ms="10416" started-at="2016-01-14T18:50:43Z" finished-at="2016-01-14T18:50:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ATT_SystemSettingsPage_Tab1_checkonly -->
-        <test-method status="PASS" signature="ATT_SystemSettingsPage_Tab2_checkonly()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="ATT_SystemSettingsPage_Tab2_checkonly" duration-ms="642" started-at="2016-01-14T18:50:53Z" finished-at="2016-01-14T18:50:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ATT_SystemSettingsPage_Tab2_checkonly -->
-        <test-method status="PASS" signature="ATT_SystemSettingsPage_Tab3_checkonly()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="ATT_SystemSettingsPage_Tab3_checkonly" duration-ms="635" started-at="2016-01-14T18:50:54Z" finished-at="2016-01-14T18:50:54Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- ATT_SystemSettingsPage_Tab3_checkonly -->
-        <test-method status="PASS" signature="testATT_DevicesPage_Tab1_selectcheck()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="testATT_DevicesPage_Tab1_selectcheck" duration-ms="4005" started-at="2016-01-14T18:50:54Z" finished-at="2016-01-14T18:50:58Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_DevicesPage_Tab1_selectcheck -->
-        <test-method status="PASS" signature="testATT_SystemSettingsPage_Tab2_selectcheck()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="testATT_SystemSettingsPage_Tab2_selectcheck" duration-ms="1852" started-at="2016-01-14T18:50:58Z" finished-at="2016-01-14T18:51:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_SystemSettingsPage_Tab2_selectcheck -->
-        <test-method status="PASS" signature="testATT_SystemSettingsPage_Tab3_selectcheck()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="testATT_SystemSettingsPage_Tab3_selectcheck" duration-ms="1171" started-at="2016-01-14T18:51:00Z" finished-at="2016-01-14T18:51:01Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATT_SystemSettingsPage_Tab3_selectcheck -->
-        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_SystemSettingsPageTest@6fb554cc]" name="restartApp" is-config="true" duration-ms="4534" started-at="2016-01-14T18:51:01Z" finished-at="2016-01-14T18:51:06Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restartApp -->
-      </class> <!-- Tests.ATT_SystemSettingsPageTest -->
-      <class name="Tests.ATT_HomePageTest">
-        <test-method status="PASS" signature="navigateTo()[pri:0, instance:Tests.ATT_HomePageTest@2d554825]" name="navigateTo" is-config="true" duration-ms="22348" started-at="2016-01-14T18:48:43Z" finished-at="2016-01-14T18:49:05Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateTo -->
-        <test-method status="PASS" signature="testATTHambugerMenu()[pri:0, instance:Tests.ATT_HomePageTest@2d554825]" name="testATTHambugerMenu" duration-ms="1033" started-at="2016-01-14T18:49:05Z" finished-at="2016-01-14T18:49:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHambugerMenu -->
-        <test-method status="PASS" signature="testATTHomePageHeadline()[pri:0, instance:Tests.ATT_HomePageTest@2d554825]" name="testATTHomePageHeadline" duration-ms="111" started-at="2016-01-14T18:49:07Z" finished-at="2016-01-14T18:49:07Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testATTHomePageHeadline -->
-        <test-method status="PASS" signature="restartApp()[pri:0, instance:Tests.ATT_HomePageTest@2d554825]" name="restartApp" is-config="true" duration-ms="4927" started-at="2016-01-14T18:49:07Z" finished-at="2016-01-14T18:49:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- restartApp -->
-      </class> <!-- Tests.ATT_HomePageTest -->
+      </class> <!-- Tests.ATT_LoginTest -->
     </test> <!-- Test -->
   </suite> <!-- Suite -->
 </testng-results>

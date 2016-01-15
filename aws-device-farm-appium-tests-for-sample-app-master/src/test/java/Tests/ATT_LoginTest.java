@@ -18,7 +18,6 @@ package Tests;
 import Pages.ATT_HamburgerMenuPage;
 import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
-import Pages.HomePage;
 import Tests.AbstractBaseTests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -77,7 +76,7 @@ public class ATT_LoginTest extends TestBase {
     public void login1_SuccessFully(){
         loginPage.loginInByStoredCredential();
         homePage = loginPage.returnHomePage();   
-        Assert.assertTrue(homePage.checkHamburgerMenu());
+        Assert.assertTrue(homePage.isHomePage());
         System.out.println("loginSuccessFully test done");   
     }
 
@@ -97,7 +96,7 @@ public class ATT_LoginTest extends TestBase {
     @AfterMethod
     public void logOut(){        
         //logout
-    	if (!loginPage.checkIfBackAtLogin())
+    	if (!loginPage.isCurrentPage())
     	{
 	    	try {
 		    	homePage.pressMenu();

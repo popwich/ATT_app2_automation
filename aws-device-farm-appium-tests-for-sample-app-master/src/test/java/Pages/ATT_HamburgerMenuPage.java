@@ -23,6 +23,8 @@ import org.openqa.selenium.WebElement;
  * A page representing a static homepage
  */
 public class ATT_HamburgerMenuPage extends BasePage{
+	@AndroidFindBy(id = "com.att.digitallife.android.phone22:id/alarm_tab_text1") 
+    private WebElement alarm_tab;
 	
     @AndroidFindBy(name = "Home")
     private WebElement menuHome;
@@ -59,6 +61,14 @@ public class ATT_HamburgerMenuPage extends BasePage{
 
     public ATT_HamburgerMenuPage(AppiumDriver driver) {
         super(driver);
+    }
+    
+    public Boolean isArmed() {
+        return (alarm_tab.getText() == "ARMED:"); 
+    }
+ 
+    public void setArmed() {
+        lee ; 
     }
     
     public Boolean checkHamburger_menuHome() {
@@ -108,5 +118,13 @@ public class ATT_HamburgerMenuPage extends BasePage{
     public void signout() {
          menuSignout.click();
     }
+    
+    /**
+    *
+    * @return the EnterPin page
+    */   
+    public Pages.ATT_EnterPinPage returnEnterPinPage(){
+	   return new ATT_EnterPinPage(driver);
+   }
 }
 

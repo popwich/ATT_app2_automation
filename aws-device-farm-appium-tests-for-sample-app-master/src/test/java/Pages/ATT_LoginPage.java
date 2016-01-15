@@ -65,9 +65,9 @@ public class ATT_LoginPage extends BasePage {
         	if (driver.findElementById("com.att.digitallife.android.phone22:id/userName").isDisplayed())
             {        		
         		driver.findElementById("com.att.digitallife.android.phone22:id/serverPicker").click(); 
-        		driver.findElementByName("QA1: qayqa33mickey").click(); 
+        		driver.findElementByName("QA2: qayandroid31").click(); 
         		loginButton.click(); 
-        		System.out.println("Logged in succesfully.");          		       		
+        		System.out.println("LoginPage: Logged in succesfully.");          		       		
             }        	
         }
         catch (Exception e){
@@ -110,7 +110,8 @@ public class ATT_LoginPage extends BasePage {
         }
         catch (Exception e){
         	e.getMessage();
-        	System.out.println(e);   
+        	//System.out.println(e);   
+        	System.out.println("There is no ivPhotoview, whatsnew & notification needs to be cleared");
         }       
     }
     
@@ -120,7 +121,7 @@ public class ATT_LoginPage extends BasePage {
      *
      * @return is back at login
      */
-    public boolean checkIfBackAtLogin(){
+    public boolean isCurrentPage(){
     	try {
     		return loginButton.isDisplayed();
     	}

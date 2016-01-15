@@ -52,7 +52,7 @@ public class ATT_HomePageTest extends TestBase {
      */
     @Test
     public void testATTHambugerMenu() {
-       	Assert.assertTrue(ATT_homePageTest.checkHamburgerMenu());
+       	Assert.assertTrue(ATT_homePageTest.isHomePage());
     }
 
     @Override

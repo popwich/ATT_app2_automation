@@ -22,7 +22,7 @@ import org.openqa.selenium.WebElement;
 /**
  * A page representing a static homepage
  */
-public class ATT_HomePage extends BasePage{
+public class ATT_SystemCannotTurnOnPage extends BasePage{
 
     /**
      * The headline of the homepage
@@ -36,7 +36,7 @@ public class ATT_HomePage extends BasePage{
     @AndroidFindBy(id = "android:id/home")
     private WebElement hamburger_menu;
 
-    public ATT_HomePage(AppiumDriver driver) {
+    public ATT_SystemCannotTurnOnPage(AppiumDriver driver) {
         super(driver);
     }
 
@@ -49,22 +49,16 @@ public class ATT_HomePage extends BasePage{
     }
 
     /**
-     * check whether is at current page
      */
-    public Boolean isCurrentPage() {
-     	try {
-     		 return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
-    	}
-    	catch (Exception e){
-         	e.getMessage();
-         	System.out.println(e);
-         	return false;
-        }       
-    }    
+    public Boolean checkHamburgerMenu() {
+        return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
+    }
+    
    
 	public void pressMenu() {
 		hamburger_menu.click();		
-	}	
+	}
+	
 		
     /**
     *

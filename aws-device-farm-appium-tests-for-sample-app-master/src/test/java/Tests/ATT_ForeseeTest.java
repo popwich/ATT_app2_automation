@@ -56,7 +56,7 @@ public class ATT_ForeseeTest extends TestBase {
        
     @BeforeMethod
     public void foresee_precondition() {
-    	for (int i=1; i<1; i++) { 
+    	for (int i=1; i<7; i++) { 
     		//login 6 times
     		loginPage.loginInByStoredCredential();
     		homePage = loginPage.returnHomePage();   

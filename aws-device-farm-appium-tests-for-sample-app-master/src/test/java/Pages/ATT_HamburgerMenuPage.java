@@ -69,7 +69,7 @@ public class ATT_HamburgerMenuPage extends BasePage{
     /****************************************************
     ****************************************************/
     public Boolean isArmed() {
-        return (alarm_tab.getText() == "ARMED:"); 
+        return (alarm_tab.getText() == "ARMED: ");  //there is a space behind ARMED
     }
     
     public Boolean isArming() {

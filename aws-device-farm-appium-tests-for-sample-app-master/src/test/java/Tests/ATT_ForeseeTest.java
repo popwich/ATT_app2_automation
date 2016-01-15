@@ -55,9 +55,16 @@ public class ATT_ForeseeTest extends TestBase {
        
     @Test
     public void userLike_story1(){
-    	for (int i=1; i<=7; i++) { //repeat login logout 7 times - this is precondition of foresee
-	   	     //logout
-	   	     if (!loginPage.isCurrentPage()) //if already logged in or use: "homePage.isCurrentPage()" to check the same
+    	for (int i=1; i<7; i++) { //repeat login logout 7 times - this is precondition of foresee
+	   		
+    		//login 6 times
+    		 loginPage.loginInByStoredCredential();
+    		 homePage = loginPage.returnHomePage();   
+    	     Assert.assertTrue(homePage.isCurrentPage());
+    	     System.out.println("login loop " + i + " SuccessFully");  
+    	     
+       	     //logout
+	   	     if (homePage.isCurrentPage()) 
 	   	    	{
 	   		    	try {
 	   			    	homePage.pressMenu();
@@ -70,55 +77,56 @@ public class ATT_ForeseeTest extends TestBase {
 	   		         	System.out.println(e);
 	   		        }	      
 	   	    	}
-    		
-    		//login
-    		 loginPage.loginInByStoredCredential();
-    		 homePage = loginPage.returnHomePage();   
-    	     Assert.assertTrue(homePage.isCurrentPage());
-    	     System.out.println("login loop " + i + " SuccessFully");  
-    	         	     
-    	     //logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
-    	     homePage.pressMenu();
-    	     hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
-		     if (hamburgerMenuPage.isArmed()) {
-		    	 hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		    	 
-		     }
-		     
-		     //enter pin
-	    	 enterPinPage = hamburgerMenuPage_alarmtab_expanded.returnEnterPinPage();
-	    	 try {
-	    		 if (enterPinPage.isCurrentPage()) //enterpin page appeared
-	    		 	enterPinPage.enterDigit(1);
-	    		 	enterPinPage.enterDigit(2);
-	    		 	enterPinPage.enterDigit(3);
-	    		 	enterPinPage.enterDigit(4);
-	    		    System.out.println("pin 1234 entered");  
-	    		    systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
-	    		   
-	    		    if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appreared
-	    			   systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
-	    		    }
-		    	}
-		    	catch (Exception e){
-		         	e.getMessage();
-		         	System.out.println(e);
-		        }	  
+    	}
+	   	     
+    	//login 7th time  	     
+    	loginPage.loginInByStoredCredential();
+    	homePage = loginPage.returnHomePage();   
+    	Assert.assertTrue(homePage.isCurrentPage());
+    	System.out.println("login loop " + "7" + " SuccessFully");  
+
+    	//logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
+    	homePage.pressMenu();
+    	hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
+    	if (hamburgerMenuPage.isArmed()) {
+    		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		    	 
+    	}
+
+    	//enter pin
+    	enterPinPage = hamburgerMenuPage_alarmtab_expanded.returnEnterPinPage();
+    	try {
+    		if (enterPinPage.isCurrentPage()) //enterpin page appeared
+    			enterPinPage.enterDigit(1);
+    		enterPinPage.enterDigit(2);
+    		enterPinPage.enterDigit(3);
+    		enterPinPage.enterDigit(4);
+    		System.out.println("pin 1234 entered");  
+    		systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
+
+    		if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appreared
+    			systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
+    		}
+    	}
+    	catch (Exception e){
+    		e.getMessage();
+    		System.out.println(e);
+    	}	  
+
+    	//verify arming process is in progress
+    	try {
+    		if (hamburgerMenuPage.isArming()) {
+    			System.out.println("arming in progress...");
+    		}
+    	}
+    	catch (Exception e){
+    		e.getMessage();
+    		System.out.println(e);
+    	}	 
 	    	 
-	    	 //verify arming process is in progress
-	    	 try {
-	    	 if (hamburgerMenuPage.isArming()) {
-	    			 System.out.println("arming in progress...");
-	    		 }
-	    	 }
-	    	 catch (Exception e){
-		         	e.getMessage();
-		         	System.out.println(e);
-		     }	 
-	    	 
-	    	 //wait for foresee survey
+	    //wait for foresee survey
 	    	 	    	 
-    	}           
-    }
+   	}           
+
 
     /**
      * After each test method, logout

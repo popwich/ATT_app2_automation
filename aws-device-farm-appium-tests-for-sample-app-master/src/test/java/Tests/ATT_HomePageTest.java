@@ -26,9 +26,8 @@ import org.testng.annotations.Test;
  * Tests for homepage
  */
 public class ATT_HomePageTest extends TestBase {
-    private final String ATT_HOMEPAGE_HEADLINE = "Hi, QAYQA33";
-
-    private ATT_HomePage ATT_homePageTest;
+    private final String ATT_HOMEPAGE_HEADLINE = "Hi, Melissa";
+    private ATT_HomePage ATT_HomePage;
 
     /**
      * Sets up att_homepage
@@ -36,7 +35,7 @@ public class ATT_HomePageTest extends TestBase {
     @BeforeTest
     @Override
     public void setUpPage(){
-        ATT_homePageTest = new ATT_HomePage(driver);
+    	ATT_HomePage = new ATT_HomePage(driver);
     }
 
     /**
@@ -44,7 +43,7 @@ public class ATT_HomePageTest extends TestBase {
      */
     @Test
     public void testATTHomePageHeadline() {
-        Assert.assertEquals(ATT_homePageTest.getHeadlineValue(), ATT_HOMEPAGE_HEADLINE);
+        Assert.assertEquals(ATT_HomePage.getHeadlineValue(), ATT_HOMEPAGE_HEADLINE);
     }
 
     /**
@@ -52,7 +51,7 @@ public class ATT_HomePageTest extends TestBase {
      */
     @Test
     public void testATTHambugerMenu() {
-       	Assert.assertTrue(ATT_homePageTest.isHomePage());
+       	Assert.assertTrue(ATT_HomePage.isCurrentPage());
     }
 
     @Override

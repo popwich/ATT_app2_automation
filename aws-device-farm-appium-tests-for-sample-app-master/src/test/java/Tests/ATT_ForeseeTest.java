@@ -1,5 +1,7 @@
 package Tests;
 
+import java.util.concurrent.TimeUnit;
+
 import Pages.ATT_EnterPinPage;
 import Pages.ATT_HamburgerMenuPage;
 import Pages.ATT_HamburgerMenuPage_alarmtab_expanded;
@@ -88,9 +90,13 @@ public class ATT_ForeseeTest extends TestBase {
     	//logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
     	homePage.pressMenu();
     	hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
-    	if (!hamburgerMenuPage.isArmed()) {
-    		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		
+ 		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page	
+ 		
+    	if (!hamburgerMenuPage.isArmed()) { //if system is not armed   	
     		hamburgerMenuPage_alarmtab_expanded.armSystem(); //arm system from hamburgerMenuPage_alarmtab_expanded page
+    	}
+    	else { //else system is armed
+    		hamburgerMenuPage_alarmtab_expanded.disarmSystem(); //disarm system from hamburgerMenuPage_alarmtab_expanded page
     	}
 
     	//enter pin
@@ -114,10 +120,15 @@ public class ATT_ForeseeTest extends TestBase {
     		System.out.println(e);
     	}	  
 
-    	//verify arming process is in progress
+    	//verify arming or disarming process is in progress
     	try {
-    		if (hamburgerMenuPage.isArming()) {
-    			System.out.println("arming in progress...");
+    		if (hamburgerMenuPage.isArming() | hamburgerMenuPage.isDisarming()) {
+    			if (hamburgerMenuPage.isArming() == true) {
+        			System.out.println("Arming in progress...");    				
+    			}
+    			else {
+    				System.out.println("Disarming in progress...");
+    			}
     		}
     	}
     	catch (Exception e){
@@ -129,11 +140,17 @@ public class ATT_ForeseeTest extends TestBase {
     @Test
     public void userLike_story1(){
     	//wait for foresee survey
+    	try {
+			TimeUnit.SECONDS.sleep(5);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 
     /**
-     * After each test method, logout
+     * After each test method
      */
     @AfterMethod
     //reset app in AfterMethod for Foresee test only 

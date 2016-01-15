@@ -25,7 +25,10 @@ public class ATT_HamburgerMenuPage extends BasePage{
 	
 	@AndroidFindBy(name = "ARMING") 
     private WebElement arming_in_progress;
-		
+			
+	@AndroidFindBy(name = "DISARMING") 
+    private WebElement disarming_in_progress;
+	
     @AndroidFindBy(name = "Home")
     private WebElement menuHome;
 
@@ -72,6 +75,10 @@ public class ATT_HamburgerMenuPage extends BasePage{
     public Boolean isArming() {
         return arming_in_progress.isDisplayed(); 
     }    
+    
+    public Boolean isDisarming() {
+        return disarming_in_progress.isDisplayed(); 
+    }  
     /****************************************************
     ****************************************************/
  

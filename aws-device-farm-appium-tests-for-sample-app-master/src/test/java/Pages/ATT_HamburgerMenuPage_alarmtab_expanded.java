@@ -28,6 +28,9 @@ public class ATT_HamburgerMenuPage_alarmtab_expanded extends BasePage{
 	
 	@AndroidFindBy(id = "com.att.digitallife.android.phone22:id/alarm_subtab_instant_text2") 
     private WebElement alarm_subtab_instant;
+		
+	@AndroidFindBy(id = "com.att.digitallife.android.phone22:id/alarm_subtab_disarmhome_text2") 
+    private WebElement alarm_subtab_disarmhome;
 	
     public ATT_HamburgerMenuPage_alarmtab_expanded(AppiumDriver driver) {
         super(driver);
@@ -35,6 +38,10 @@ public class ATT_HamburgerMenuPage_alarmtab_expanded extends BasePage{
     
     public void armSystem() {
     	alarm_subtab_stay.click(); //use whichever to arm the system
+    }
+    
+    public void disarmSystem() {
+    	alarm_subtab_disarmhome.click(); //disarm the system
     }
  
     /**

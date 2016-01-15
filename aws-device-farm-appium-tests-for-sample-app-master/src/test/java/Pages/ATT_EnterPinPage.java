@@ -72,8 +72,52 @@ public class ATT_EnterPinPage extends BasePage{
          	System.out.println(e);
          	return false;
         }
+    }		
+    
+    /**
+     * click on digit
+     */
+    public void enterDigit(int i) {
+      	try {
+      		WebElement digitElement;
+      		switch (i) {
+	      		case 1: digitElement = number1;
+	      			digitElement.click();
+	      			break;
+	      		case 2: digitElement = number2;
+	      			digitElement.click();
+	  				break;
+	      		case 3: digitElement = number3;
+	      			digitElement.click();	
+	      			break;
+	      		case 4: digitElement = number4;
+	      			digitElement.click();
+	  				break;
+	      		case 5: digitElement = number5;
+	      			digitElement.click();
+	  				break;
+	      		case 6: digitElement = number6;
+	      			digitElement.click();
+	  				break;
+	      		case 7: digitElement = number7;
+	      			digitElement.click();
+	  				break;
+	      		case 8: digitElement = number8;
+	      			digitElement.click();
+	  				break;
+	      		case 9: digitElement = number9;
+	      			digitElement.click();
+	  				break;
+	      		case 0: digitElement = number0;
+	      			digitElement.click();
+					break;
+      		}      	
+    	}
+    	catch (Exception e){
+         	e.getMessage();
+         	System.out.println(e);
+        }
     }
-		
     /**
     *
     * @return the SystemCannotTurnOn page

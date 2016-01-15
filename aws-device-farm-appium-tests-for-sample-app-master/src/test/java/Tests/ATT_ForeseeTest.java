@@ -45,34 +45,37 @@ public class ATT_ForeseeTest extends TestBase {
            	System.out.println(e);   
            }
     }
-   
-    
+       
     @Test
-    public void userLike(){
+    public void userLike_story1(){
     	for (int i=1; i<=7; i++) { //repeat login logout 7 times - this is precondition of foresee
+	   	     //logout
+	   	     if (!loginPage.isCurrentPage()) //if already logged in or use: "homePage.isCurrentPage()" to check the same
+	   	    	{
+	   		    	try {
+	   			    	homePage.pressMenu();
+	   			    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
+	   			    	hamburgerMenuPage.signout();
+	   		    	     System.out.println("logout loop " + i + " SuccessFully");  
+	   		    	}
+	   		    	catch (Exception e){
+	   		         	e.getMessage();
+	   		         	System.out.println(e);
+	   		        }	      
+	   	    	}
+    		
     		//login
     		 loginPage.loginInByStoredCredential();
     		 homePage = loginPage.returnHomePage();   
     	     Assert.assertTrue(homePage.isCurrentPage());
     	     System.out.println("login loop " + i + " SuccessFully");  
-    	     
-    	     //logout
-    	     if (homePage.isCurrentPage()) //if already at homepage or use: "!loginPage.checkIfBackAtLogin()" to check if already at login page
-    	    	{
-    		    	try {
-    			    	homePage.pressMenu();
-    			    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
-    			    	hamburgerMenuPage.signout();
-    		    	     System.out.println("logout loop " + i + " SuccessFully");  
-    		    	}
-    		    	catch (Exception e){
-    		         	e.getMessage();
-    		         	System.out.println(e);
-    		        }	      
-    	    	}
-    	     
-    	     //arm or disarm the system to trigger the foresee
-    	     
+    	         	     
+    	     //logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
+    	     homePage.pressMenu();
+    	     hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
+		     if (hamburgerMenuPage.isArmed()) {
+		    	 
+		     }
     	}           
     }
 

@@ -20,51 +20,34 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
 /**
- * A page representing a static homepage
+ * EnterPin page inherited from HamburgerMenuPage as result of Arming 
  */
 public class ATT_SystemCannotTurnOnPage extends BasePage{
-
-    /**
-     * The headline of the homepage
-     */
-    @AndroidFindBy(id = "android:id/action_bar_title")
-    private WebElement headline;
-
-    /**
-     * the hamburger menu of the homepage
-     */
-    @AndroidFindBy(id = "android:id/home")
-    private WebElement hamburger_menu;
-
+    @AndroidFindBy(name = "System Cannot Turn On")
+    private WebElement systemcannotturnon;
+        
+    @AndroidFindBy(id = "com.att.digitallife.android.phone22:id/bypassButton")
+    private WebElement bypassButton;
+    
     public ATT_SystemCannotTurnOnPage(AppiumDriver driver) {
         super(driver);
     }
 
     /**
-     *
-     * @return the header text content
+     * check whether is at current page
      */
-    public String getHeadlineValue() {
-        return headline.getText();
-    }
-
-    /**
-     */
-    public Boolean checkHamburgerMenu() {
-        return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
-    }
+    public Boolean isCurrentPage() {
+      	try {
+      		return systemcannotturnon.isDisplayed(); 
+    	}
+    	catch (Exception e){
+         	e.getMessage();
+         	System.out.println(e);
+         	return false;
+        }
+    }	
     
-   
-	public void pressMenu() {
-		hamburger_menu.click();		
-	}
-	
-		
-    /**
-    *
-    * @return the hamburger page
-    */   
-    public Pages.ATT_HamburgerMenuPage returnHamburgerMenuPage(){
-	   return new ATT_HamburgerMenuPage(driver);
-   }
+	public void clickBypassButton() {
+		bypassButton.click();
+	}	
 }

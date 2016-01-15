@@ -19,13 +19,13 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebElement;
 
-/**
- * A page representing a static homepage
- */
 public class ATT_HamburgerMenuPage extends BasePage{
 	@AndroidFindBy(id = "com.att.digitallife.android.phone22:id/alarm_tab_text1") 
     private WebElement alarm_tab;
 	
+	@AndroidFindBy(name = "ARMING") 
+    private WebElement arming_in_progress;
+		
     @AndroidFindBy(name = "Home")
     private WebElement menuHome;
 
@@ -63,14 +63,18 @@ public class ATT_HamburgerMenuPage extends BasePage{
         super(driver);
     }
     
+    /****************************************************
+    ****************************************************/
     public Boolean isArmed() {
         return (alarm_tab.getText() == "ARMED:"); 
     }
- 
-    public void setArmed() {
-        lee ; 
-    }
     
+    public Boolean isArming() {
+        return arming_in_progress.isDisplayed(); 
+    }    
+    /****************************************************
+    ****************************************************/
+ 
     public Boolean checkHamburger_menuHome() {
         return menuHome.isDisplayed();
     }
@@ -121,10 +125,11 @@ public class ATT_HamburgerMenuPage extends BasePage{
     
     /**
     *
-    * @return the EnterPin page
+    * @return the HamburgerMenuPage_alarmtab_expanded page
     */   
-    public Pages.ATT_EnterPinPage returnEnterPinPage(){
-	   return new ATT_EnterPinPage(driver);
+    public Pages.ATT_HamburgerMenuPage_alarmtab_expanded returnHamburgerMenuPage_alarmtab_expanded(){
+    	alarm_tab.click();
+	    return new ATT_HamburgerMenuPage_alarmtab_expanded(driver);
    }
 }
 

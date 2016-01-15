@@ -9,6 +9,7 @@ import Pages.ATT_SystemCannotTurnOnPage;
 import Tests.AbstractBaseTests.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -53,32 +54,31 @@ public class ATT_ForeseeTest extends TestBase {
            }
     }
        
-    @Test
-    public void userLike_story1(){
+    @BeforeMethod
+    public void foresee_precondition() {
     	for (int i=1; i<7; i++) { //repeat login logout 7 times - this is precondition of foresee
-	   		
     		//login 6 times
-    		 loginPage.loginInByStoredCredential();
-    		 homePage = loginPage.returnHomePage();   
-    	     Assert.assertTrue(homePage.isCurrentPage());
-    	     System.out.println("login loop " + i + " SuccessFully");  
-    	     
-       	     //logout
-	   	     if (homePage.isCurrentPage()) 
-	   	    	{
-	   		    	try {
-	   			    	homePage.pressMenu();
-	   			    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
-	   			    	hamburgerMenuPage.signout();
-	   		    	     System.out.println("logout loop " + i + " SuccessFully");  
-	   		    	}
-	   		    	catch (Exception e){
-	   		         	e.getMessage();
-	   		         	System.out.println(e);
-	   		        }	      
-	   	    	}
+    		loginPage.loginInByStoredCredential();
+    		homePage = loginPage.returnHomePage();   
+    		Assert.assertTrue(homePage.isCurrentPage());
+    		System.out.println("login loop " + i + " SuccessFully");  
+
+    		//logout
+    		if (homePage.isCurrentPage()) 
+    		{
+    			try {
+    				homePage.pressMenu();
+    				hamburgerMenuPage = homePage.returnHamburgerMenuPage();
+    				hamburgerMenuPage.signout();
+    				System.out.println("logout loop " + i + " SuccessFully");  
+    			}
+    			catch (Exception e){
+    				e.getMessage();
+    				System.out.println(e);
+    			}	      
+    		}
     	}
-	   	     
+
     	//login 7th time  	     
     	loginPage.loginInByStoredCredential();
     	homePage = loginPage.returnHomePage();   
@@ -88,7 +88,7 @@ public class ATT_ForeseeTest extends TestBase {
     	//logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
     	homePage.pressMenu();
     	hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
-    	if (hamburgerMenuPage.isArmed()) {
+    	if (!hamburgerMenuPage.isArmed()) {
     		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		    	 
     	}
 
@@ -121,30 +121,21 @@ public class ATT_ForeseeTest extends TestBase {
     	catch (Exception e){
     		e.getMessage();
     		System.out.println(e);
-    	}	 
-	    	 
-	    //wait for foresee survey
-	    	 	    	 
-   	}           
+    	}	     
+    }          
+    
+    @Test
+    public void userLike_story1(){
+    	//wait for foresee survey
+    }
 
 
     /**
      * After each test method, logout
      */
     @AfterMethod
-    public void logOut(){        
-        //logout
-    	if (!loginPage.isCurrentPage())
-    	{
-	    	try {
-		    	homePage.pressMenu();
-		    	hamburgerMenuPage = homePage.returnHamburgerMenuPage();
-		    	hamburgerMenuPage.signout();
-	    	}
-	    	catch (Exception e){
-	         	e.getMessage();
-	         	System.out.println(e);
-	        }	      
-    	}
+    //reset app in AfterMethod for Foresee test only 
+    public void restartApp() {
+        driver.resetApp();
     }
 }

@@ -56,7 +56,7 @@ public class ATT_ForeseeTest extends TestBase {
        
     @BeforeMethod
     public void foresee_precondition() {
-    	for (int i=1; i<7; i++) { //repeat login logout 7 times - this is precondition of foresee
+    	for (int i=1; i<1; i++) { 
     		//login 6 times
     		loginPage.loginInByStoredCredential();
     		homePage = loginPage.returnHomePage();   
@@ -89,20 +89,22 @@ public class ATT_ForeseeTest extends TestBase {
     	homePage.pressMenu();
     	hamburgerMenuPage = homePage.returnHamburgerMenuPage(); 
     	if (!hamburgerMenuPage.isArmed()) {
-    		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		    	 
+    		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page		
+    		hamburgerMenuPage_alarmtab_expanded.armSystem(); //arm system from hamburgerMenuPage_alarmtab_expanded page
     	}
 
     	//enter pin
     	enterPinPage = hamburgerMenuPage_alarmtab_expanded.returnEnterPinPage();
     	try {
-    		if (enterPinPage.isCurrentPage()) //enterpin page appeared
+    		if (enterPinPage.isCurrentPage()){ //enterpin page appeared
     			enterPinPage.enterDigit(1);
-    		enterPinPage.enterDigit(2);
-    		enterPinPage.enterDigit(3);
-    		enterPinPage.enterDigit(4);
-    		System.out.println("pin 1234 entered");  
-    		systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
-
+	    		enterPinPage.enterDigit(2);
+	    		enterPinPage.enterDigit(3);
+	    		enterPinPage.enterDigit(4);
+	    		System.out.println("pin 1234 entered");  
+	    		systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
+    		}
+    		
     		if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appreared
     			systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
     		}

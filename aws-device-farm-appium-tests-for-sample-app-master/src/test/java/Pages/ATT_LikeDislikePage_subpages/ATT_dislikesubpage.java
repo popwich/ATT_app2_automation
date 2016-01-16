@@ -28,6 +28,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.FluentWait;
 
 import Pages.BasePage;
+import Pages.ATT_LikeDislikePage_subpages.ATT_DislikesSubPage_subpages.ATT_yeshelpsubpage;
+import Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_ratesubpage;
 
 import com.google.common.base.Function;
 
@@ -36,7 +38,7 @@ import com.google.common.base.Function;
  * @param <wait_timeout>
  */
 public class ATT_dislikesubpage<wait_timeout> extends BasePage{
-    @AndroidFindBy(id = "com.att.digitallife.android.phone22:id/tvConfirmationDialogTitle")
+    @AndroidFindBy(name = "We'd welcome your feedback")
     private WebElement headline;
     
     @AndroidFindBy(name = "No, thanks")
@@ -68,14 +70,14 @@ public class ATT_dislikesubpage<wait_timeout> extends BasePage{
     	try {
     		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
     			public WebElement apply(WebDriver d) {
-    				WebElement rateButton_obj = d.findElement(By.name("Rate"));
-    				System.out.println("rateButton found"); 
+    				WebElement rateButton_obj = d.findElement(By.name("No, thanks"));
+    				System.out.println("nothanksButton found"); 
     				return rateButton_obj;
     			}
     		});
     		return true;
     	} catch (TimeoutException t) {
-    		System.out.println("Did not find the rateButton within fluent wait time");  
+    		System.out.println("Did not find the nothanksButton within fluent wait time");  
     		return false;
     	}
     }	
@@ -87,4 +89,12 @@ public class ATT_dislikesubpage<wait_timeout> extends BasePage{
 	public void clickYesHelpButton() {
 		yeshelpButton.click();
 	}	
+	
+	 /**
+    *
+    * @return the subpages
+    */   
+    public Pages.ATT_LikeDislikePage_subpages.ATT_DislikesSubPage_subpages.ATT_yeshelpsubpage returnYeshelpSubPage(){
+	   return new ATT_yeshelpsubpage(driver);
+   }
 }

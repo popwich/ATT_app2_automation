@@ -29,7 +29,6 @@ import org.openqa.selenium.support.ui.FluentWait;
 
 import Pages.BasePage;
 import Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_ratesubpage;
-import Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_remindsubpage;
 
 import com.google.common.base.Function;
 
@@ -104,8 +103,4 @@ public class ATT_likesubpage<wait_timeout> extends BasePage{
     public Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_ratesubpage returnRateSubPage(){
 	   return new ATT_ratesubpage(driver);
    }
-    
-    public Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_remindsubpage returnRemindSubPage(){
-  	   return new ATT_remindsubpage(driver);
-     }
 }

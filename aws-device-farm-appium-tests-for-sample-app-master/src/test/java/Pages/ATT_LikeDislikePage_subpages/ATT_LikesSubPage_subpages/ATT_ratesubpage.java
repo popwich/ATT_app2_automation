@@ -32,7 +32,6 @@ import Pages.BasePage;
 import com.google.common.base.Function;
 
 /**
- * subpage after click rate
  * @param <wait_timeout>
  */
 public class ATT_ratesubpage<wait_timeout> extends BasePage{    

@@ -8,9 +8,13 @@ import Pages.ATT_EnterPinPage;
 import Pages.ATT_HamburgerMenuPage;
 import Pages.ATT_HamburgerMenuPage_alarmtab_expanded;
 import Pages.ATT_LikeDislikePage;
+import Pages.ATT_LikeDislikePage_likesubpage;
 import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
 import Pages.ATT_SystemCannotTurnOnPage;
+import Pages.Life;
+import Pages.the;
+import Pages.you;
 import Tests.AbstractBaseTests.TestBase;
 
 import org.openqa.selenium.By;
@@ -38,9 +42,11 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_HamburgerMenuPage_alarmtab_expanded hamburgerMenuPage_alarmtab_expanded;
     private ATT_EnterPinPage enterPinPage;
     private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
-    private ATT_LikeDislikePage likeDislikePage;    
+    private ATT_LikeDislikePage likeDislikePage;
+    private ATT_LikeDislikePage_likesubpage likesubpage;  
  
     private Boolean arm_status = false;
+    private final String ATT_LikeDislikePage_HEADLINE = "How do you like the Digital Life App?";
 
     @Override
     public String getName() {
@@ -172,8 +178,26 @@ public class ATT_ForeseeTest extends TestBase {
     @Test
     public void userLike_story1(){
     	//wait for foresee survey
+    	
+    	System.out.println("userLike_story1 test");  
+    	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
+    	//wait for likedislike page to appear
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	System.out.println("LikeDislike page appeared");  
+    	
+    	//assert headline of 
+    	Assert.assertEquals(likeDislikePage.getHeadlineValue(), ATT_LikeDislikePage_HEADLINE);
+
+    	//click like button
+    	likeDislikePage.clickLikeButton();	    
+		
+    }
+    
+    @Test
+    public void userLike_story2(){
+    	//wait for foresee survey
     	try {
-			System.out.println("userLike_story1 test");  
+			System.out.println("userLike_story2 test");  
 			likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
 			//wait for likedislike page to appear
 			Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
@@ -185,36 +209,7 @@ public class ATT_ForeseeTest extends TestBase {
     		e.getMessage();
     		System.out.println(e);
 		}
-    	
-    	/*FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
-    			.withTimeout(60, TimeUnit.SECONDS)
-    			.pollingEvery(7, TimeUnit.SECONDS)
-    			.ignoring(NoSuchElementException.class);
-    	try {
-    		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
-    			public WebElement apply(WebDriver d) {
-    				WebElement likeButton = d.findElement(By.name("Like"));
-    				System.out.println("likeButton found"); 
-    				return likeButton;
-    			}
-    		});
-    	} catch (TimeoutException t) {
-    		System.out.println("Did not find the Like Button within fluent wait time");
-    	}*/
     }
-    
-    @Test
-    public void userLike_story2(){
-    	//wait for foresee survey
-    	try {
-			TimeUnit.SECONDS.sleep(60);
-			System.out.println("userLike_story2 test");    
-		} catch (Exception e){
-    		e.getMessage();
-    		System.out.println(e);
-		}
-    }
-
 
     /**
      * After each test method

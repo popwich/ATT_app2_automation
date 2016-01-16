@@ -30,48 +30,26 @@ import org.openqa.selenium.support.ui.FluentWait;
 import com.google.common.base.Function;
 
 /**
- * likedislike page for foresee page 
+ * subpage after click like
  * @param <wait_timeout>
  */
-public class ATT_LikeDislikePage<wait_timeout> extends BasePage{
-	@AndroidFindBy(id = "com.att.digitallife.android.phone22:id/tvConfirmationDialogTitle")
-    private WebElement headline;       
-    		
-    @AndroidFindBy(name = "Like")
-    private WebElement likeButton;
+public class ATT_LikeDislikePage_likesubpage<wait_timeout> extends BasePage{
+    @AndroidFindBy(name = "Rate")
+    private WebElement rateButton;
         
-    @AndroidFindBy(name = "Dislike")
-    private WebElement dislikeButton;
+    @AndroidFindBy(name = "Remind me later")
+    private WebElement remindButton;
     
     @AndroidFindBy(name = "No Thanks")
     private WebElement nothanksButton;
     
-    public ATT_LikeDislikePage(AppiumDriver driver) {
+    public ATT_LikeDislikePage_likesubpage(AppiumDriver driver) {
         super(driver);
     }
-    
-    /**
-    *
-    * @return the header text content
-    */
-    public String getHeadlineValue() {
-       return headline.getText();
-   }
 
     /**
      * check whether is at current page
-     */
-    public Boolean isCurrentPage_old() {
-      	try {
-      		return likeButton.isDisplayed(); 
-    	}
-    	catch (Exception e){
-         	e.getMessage();
-         	System.out.println(e);
-         	return false;
-        }
-    }	
-    
+     */   
     public Boolean isCurrentPage(int wait_timeout) { //fluent wait method - more flexible, user can pass in wait_timeout to specify how long to wait for certain web element to appear
     	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
     			.withTimeout(wait_timeout, TimeUnit.SECONDS)
@@ -80,39 +58,27 @@ public class ATT_LikeDislikePage<wait_timeout> extends BasePage{
     	try {
     		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
     			public WebElement apply(WebDriver d) {
-    				WebElement likeButton_obj = d.findElement(By.name("Like"));
-    				System.out.println("likeButton found"); 
-    				return likeButton_obj;
+    				WebElement rateButton_obj = d.findElement(By.name("Rate"));
+    				System.out.println("rateButton found"); 
+    				return rateButton_obj;
     			}
     		});
     		return true;
     	} catch (TimeoutException t) {
-    		System.out.println("Did not find the Like Button within fluent wait time");  
+    		System.out.println("Did not find the rateButton within fluent wait time");  
     		return false;
     	}
     }	
 
-	public void clickLikeButton() {
-		likeButton.click();
+	public void clickRateButton() {
+		rateButton.click();
 	}
 	
-	public void clickDislikeButton() {
-		dislikeButton.click();
+	public void clickRemindButton() {
+		remindButton.click();
 	}	
 	
 	public void clickNothanksButton() {
 		nothanksButton.click();
 	}	
-	
-	 /**
-    *
-    * @return the subpage page
-    */   
-    public Pages.ATT_LikeDislikePage_likesubpage returnLikeSubPage(){
-	   return new ATT_LikeDislikePage_likesubpage(driver);
-   }
-    
-    public Pages.ATT_LikeDislikePage_remindsubpage returnRemindSubPage(){
- 	   return new ATT_LikeDislikePage_remindsubpage(driver);
-    }
 }

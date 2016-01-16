@@ -58,7 +58,17 @@ public class ATT_ForeseeTest extends TestBase {
        
     @BeforeMethod
     public void foresee_precondition() {
-    	for (int i=1; i<1; i++) { 
+    	//clear license agreement page if there is 1
+    	try {
+           	if (driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").isDisplayed())
+               {driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").click(); }
+          }
+           catch (Exception e){
+           	e.getMessage();
+           	System.out.println(e);   
+           }    	
+    	
+    	for (int i=1; i<7; i++) { 
     		//login 6 times
     		loginPage.loginInByStoredCredential();
     		homePage = loginPage.returnHomePage();   
@@ -147,7 +157,20 @@ public class ATT_ForeseeTest extends TestBase {
     public void userLike_story1(){
     	//wait for foresee survey
     	try {
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(1);
+			System.out.println("userLike_story1");    				
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    @Test
+    public void userLike_story2(){
+    	//wait for foresee survey
+    	try {
+			TimeUnit.SECONDS.sleep(1);
+			System.out.println("userLike_story2");    
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

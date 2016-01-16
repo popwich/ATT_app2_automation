@@ -26,7 +26,7 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_HamburgerMenuPage_alarmtab_expanded hamburgerMenuPage_alarmtab_expanded;
     private ATT_EnterPinPage enterPinPage;
     private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
-    
+    private Boolean arm_status = false;
 
     @Override
     public String getName() {
@@ -93,9 +93,11 @@ public class ATT_ForeseeTest extends TestBase {
  		hamburgerMenuPage_alarmtab_expanded = hamburgerMenuPage.returnHamburgerMenuPage_alarmtab_expanded(); //click on alarm tab and return new alarmtab_expanded page	
  		
     	if (!hamburgerMenuPage.isArmed()) { //if system is not armed   	
+    		arm_status = false; 
     		hamburgerMenuPage_alarmtab_expanded.armSystem(); //arm system from hamburgerMenuPage_alarmtab_expanded page
     	}
     	else { //else system is armed
+    		arm_status = true;
     		hamburgerMenuPage_alarmtab_expanded.disarmSystem(); //disarm system from hamburgerMenuPage_alarmtab_expanded page
     	}
 
@@ -111,8 +113,10 @@ public class ATT_ForeseeTest extends TestBase {
 	    		systemCannotTurnOnPage = enterPinPage.returnSystemCannotTurnOnPage();
     		}
     		
-    		if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appreared
-    			systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
+    		if (!arm_status) { //skip waiting for systemCannotTurnOn page if we are disarming the system
+	    		if (systemCannotTurnOnPage.isCurrentPage()) { //systemCannotTurnOn page appeared
+	    			systemCannotTurnOnPage.clickBypassButton(); //click on bypass button to continue arming process
+	    		}
     		}
     	}
     	catch (Exception e){
@@ -122,12 +126,14 @@ public class ATT_ForeseeTest extends TestBase {
 
     	//verify arming or disarming process is in progress
     	try {
-    		if (hamburgerMenuPage.isArming() | hamburgerMenuPage.isDisarming()) {
-    			if (hamburgerMenuPage.isArming() == true) {
-        			System.out.println("Arming in progress...");    				
+    		if (arm_status) {
+    			if (hamburgerMenuPage.isDisarming()) {
+        			System.out.println("Disarming in progress..."); 
     			}
-    			else {
-    				System.out.println("Disarming in progress...");
+    		}
+    		else {
+    			if (hamburgerMenuPage.isArming()) {
+        			System.out.println("Arming in progress...");    				
     			}
     		}
     	}

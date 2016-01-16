@@ -1,20 +1,32 @@
 package Tests;
 
+import io.appium.java_client.pagefactory.AndroidFindBy;
+
 import java.util.concurrent.TimeUnit;
 
 import Pages.ATT_EnterPinPage;
 import Pages.ATT_HamburgerMenuPage;
 import Pages.ATT_HamburgerMenuPage_alarmtab_expanded;
+import Pages.ATT_LikeDislikePage;
 import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
 import Pages.ATT_SystemCannotTurnOnPage;
 import Tests.AbstractBaseTests.TestBase;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import com.google.common.base.Function;
 
 /**
  * Tests for a foresee
@@ -26,6 +38,8 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_HamburgerMenuPage_alarmtab_expanded hamburgerMenuPage_alarmtab_expanded;
     private ATT_EnterPinPage enterPinPage;
     private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
+    private ATT_LikeDislikePage likeDislikePage;    
+ 
     private Boolean arm_status = false;
 
     @Override
@@ -152,28 +166,53 @@ public class ATT_ForeseeTest extends TestBase {
     		System.out.println(e);
     	}	     
     }          
-    
+        
+    /**********************************************/
+    /*********************************************/    
     @Test
     public void userLike_story1(){
     	//wait for foresee survey
+    /*	try {
+			TimeUnit.SECONDS.sleep(30);
+			System.out.println("userLike_story1 test");  
+			likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
+			//wait for likedislike page to appear
+			Assert.assertTrue(likeDislikePage.isCurrentPage());			
+			System.out.println("LikeDislike page appeared");  
+    		
+			//click like button
+			likeDislikePage.clickLikeButton();	    
+		} catch (Exception e){
+    		e.getMessage();
+    		System.out.println(e);
+		}*/
+    	
+    	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
+    			.withTimeout(60, TimeUnit.SECONDS)
+    			.pollingEvery(7, TimeUnit.SECONDS)
+    			.ignoring(NoSuchElementException.class);
     	try {
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("userLike_story1");    				
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
+    			public WebElement apply(WebDriver d) {
+    				WebElement likeButton = d.findElement(By.name("Like"));
+    				System.out.println("likeButton found"); 
+    				return likeButton;
+    			}
+    		});
+    	} catch (TimeoutException t) {
+    		System.out.println("Did not find the Like Button within fluent wait time");
+    	}
     }
     
     @Test
     public void userLike_story2(){
     	//wait for foresee survey
     	try {
-			TimeUnit.SECONDS.sleep(1);
-			System.out.println("userLike_story2");    
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			TimeUnit.SECONDS.sleep(60);
+			System.out.println("userLike_story2 test");    
+		} catch (Exception e){
+    		e.getMessage();
+    		System.out.println(e);
 		}
     }
 

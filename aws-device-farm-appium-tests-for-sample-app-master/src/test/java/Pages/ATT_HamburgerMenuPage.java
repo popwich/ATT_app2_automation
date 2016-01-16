@@ -138,5 +138,13 @@ public class ATT_HamburgerMenuPage extends BasePage{
     	alarm_tab.click();
 	    return new ATT_HamburgerMenuPage_alarmtab_expanded(driver);
    }
+    
+    /**
+    *
+    * @return the LikeDislikePage for foresee testing
+    */   
+    public Pages.ATT_LikeDislikePage returnLikeDislikePage(){
+    	return new ATT_LikeDislikePage(driver);
+   }
 }
 

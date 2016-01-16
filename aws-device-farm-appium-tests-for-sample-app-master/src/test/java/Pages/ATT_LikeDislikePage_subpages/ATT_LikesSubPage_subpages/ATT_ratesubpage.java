@@ -35,38 +35,13 @@ import com.google.common.base.Function;
  * subpage after click rate
  * @param <wait_timeout>
  */
-public class ATT_ratesubpage<wait_timeout> extends BasePage{
-    /*@AndroidFindBy(name = "Rate")
-    private WebElement rateButton;  */      
-        
+public class ATT_ratesubpage<wait_timeout> extends BasePage{    
     public ATT_ratesubpage(AppiumDriver driver) {
         super(driver);
     }
 
     /**
-     * check whether is at current page
+     * check whether is at app store
      */   
-    public Boolean isCurrentPage(int wait_timeout) { //fluent wait method - more flexible, user can pass in wait_timeout to specify how long to wait for certain web element to appear
-    	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
-    			.withTimeout(wait_timeout, TimeUnit.SECONDS)
-    			.pollingEvery(5, TimeUnit.SECONDS)
-    			.ignoring(NoSuchElementException.class);
-    	try {
-    		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
-    			public WebElement apply(WebDriver d) {
-    				WebElement rateButton_obj = d.findElement(By.name("Rate"));
-    				System.out.println("rateButton found"); 
-    				return rateButton_obj;
-    			}
-    		});
-    		return true;
-    	} catch (TimeoutException t) {
-    		System.out.println("Did not find the rateButton within fluent wait time");  
-    		return false;
-    	}
-    }	
-
-	/*public void clickRateButton() {
-		rateButton.click();
-	}*/	
+    //lee - tbd 
 }

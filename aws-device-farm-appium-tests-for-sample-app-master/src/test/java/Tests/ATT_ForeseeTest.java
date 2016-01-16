@@ -12,6 +12,8 @@ import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
 import Pages.ATT_SystemCannotTurnOnPage;
 import Pages.ATT_LikeDislikePage_subpages.ATT_likesubpage;
+import Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_ratesubpage;
+import Pages.ATT_LikeDislikePage_subpages.ATT_LikesSubPage_subpages.ATT_remindsubpage;
 import Tests.AbstractBaseTests.TestBase;
 
 import org.openqa.selenium.By;
@@ -41,10 +43,14 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
     private ATT_LikeDislikePage likeDislikePage;
     private ATT_likesubpage likesubpage;  
+    private ATT_ratesubpage ratesubpage;
+    private ATT_remindsubpage remindsubpage;
  
     private Boolean arm_status = false;
     private final String ATT_LikeDislikePage_HEADLINE = "How do you like the Digital Life App?";
-
+    private final String ATT_LikeSubPage_HEADLINE = "Thank you";
+    private final String ATT_DislikeSubPage_HEADLINE = "We'd welcome your feedback/You have been selected to participate in a brief customer satisfaction survey to let us know how we can improve your experience.";
+        
     @Override
     public String getName() {
         return "foresee Page";
@@ -173,39 +179,57 @@ public class ATT_ForeseeTest extends TestBase {
     /**********************************************/
     /*********************************************/    
     @Test
-    public void userLike_story1(){
-    	//wait for foresee survey
-    	
-    	System.out.println("userLike_story1 test");  
+    public void userLike_rate(){ //like -> rate
+    	//wait for foresee survey    	
+    	System.out.println("userLike_rate test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
     	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
-    	//assert headline of 
+    	//assert headline of likeDislikePage
     	Assert.assertEquals(likeDislikePage.getHeadlineValue(), ATT_LikeDislikePage_HEADLINE);
 
-    	//click like button
-    	likeDislikePage.clickLikeButton();	    
-		
+    	//click like button, return likesubpage
+    	likeDislikePage.clickLikeButton();	   		
+    	likesubpage = likeDislikePage.returnLikeSubPage();
+    	
+    	//assert headline of likesubpage
+    	Assert.assertEquals(likeDislikePage.getHeadlineValue(), ATT_LikeSubPage_HEADLINE);
+
+    	//click rate button, return ratesubpage
+    	likesubpage.clickRateButton();	   		
+    	ratesubpage = likesubpage.returnRateSubPage();
+    	
+    	//assert click rate leads to app store
+    	//lee - tbd    	    	
+    	    	
     }
     
     @Test
-    public void userLike_story2(){
-    	//wait for foresee survey
-    	try {
-			System.out.println("userLike_story2 test");  
-			likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
-			//wait for likedislike page to appear
-			Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
-			System.out.println("LikeDislike page appeared");  
-    		
-			//click like button
-			likeDislikePage.clickLikeButton();	    
-		} catch (Exception e){
-    		e.getMessage();
-    		System.out.println(e);
-		}
+    public void userLike_remindmelater(){ //like -> remind me later
+    	//wait for foresee survey    	
+    	System.out.println("userLike_remindmelater test");  
+    	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
+    	//wait for likedislike page to appear
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	System.out.println("LikeDislike page appeared");  
+    	
+    	//assert headline of likeDislikePage
+    	Assert.assertEquals(likeDislikePage.getHeadlineValue(), ATT_LikeDislikePage_HEADLINE);
+
+    	//click like button, return likesubpage
+    	likeDislikePage.clickLikeButton();	   		
+    	likesubpage = likeDislikePage.returnLikeSubPage();
+    	
+    	//assert headline of likesubpage
+    	Assert.assertEquals(likeDislikePage.getHeadlineValue(), ATT_LikeSubPage_HEADLINE);
+
+    	//click remindmelater button, return remindsubpage
+    	likesubpage.clickRemindButton();	   		
+    	remindsubpage = likesubpage.returnRemindSubPage();
+    	
+    	//assert
     }
 
     /**

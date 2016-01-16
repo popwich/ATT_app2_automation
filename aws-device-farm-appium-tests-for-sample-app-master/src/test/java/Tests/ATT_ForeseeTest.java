@@ -8,13 +8,10 @@ import Pages.ATT_EnterPinPage;
 import Pages.ATT_HamburgerMenuPage;
 import Pages.ATT_HamburgerMenuPage_alarmtab_expanded;
 import Pages.ATT_LikeDislikePage;
-import Pages.ATT_LikeDislikePage_likesubpage;
 import Pages.ATT_LoginPage;
 import Pages.ATT_HomePage;
 import Pages.ATT_SystemCannotTurnOnPage;
-import Pages.Life;
-import Pages.the;
-import Pages.you;
+import Pages.ATT_LikeDislikePage_subpages.ATT_likesubpage;
 import Tests.AbstractBaseTests.TestBase;
 
 import org.openqa.selenium.By;
@@ -43,7 +40,7 @@ public class ATT_ForeseeTest extends TestBase {
     private ATT_EnterPinPage enterPinPage;
     private ATT_SystemCannotTurnOnPage systemCannotTurnOnPage;
     private ATT_LikeDislikePage likeDislikePage;
-    private ATT_LikeDislikePage_likesubpage likesubpage;  
+    private ATT_likesubpage likesubpage;  
  
     private Boolean arm_status = false;
     private final String ATT_LikeDislikePage_HEADLINE = "How do you like the Digital Life App?";

@@ -172,12 +172,11 @@ public class ATT_ForeseeTest extends TestBase {
     @Test
     public void userLike_story1(){
     	//wait for foresee survey
-    /*	try {
-			TimeUnit.SECONDS.sleep(30);
+    	try {
 			System.out.println("userLike_story1 test");  
 			likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
 			//wait for likedislike page to appear
-			Assert.assertTrue(likeDislikePage.isCurrentPage());			
+			Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
 			System.out.println("LikeDislike page appeared");  
     		
 			//click like button
@@ -185,9 +184,9 @@ public class ATT_ForeseeTest extends TestBase {
 		} catch (Exception e){
     		e.getMessage();
     		System.out.println(e);
-		}*/
+		}
     	
-    	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
+    	/*FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
     			.withTimeout(60, TimeUnit.SECONDS)
     			.pollingEvery(7, TimeUnit.SECONDS)
     			.ignoring(NoSuchElementException.class);
@@ -201,7 +200,7 @@ public class ATT_ForeseeTest extends TestBase {
     		});
     	} catch (TimeoutException t) {
     		System.out.println("Did not find the Like Button within fluent wait time");
-    	}
+    	}*/
     }
     
     @Test

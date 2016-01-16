@@ -15,14 +15,25 @@
 
 package Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+
+import com.google.common.base.Function;
 
 /**
  * likedislike page for foresee page 
+ * @param <wait_timeout>
  */
-public class ATT_LikeDislikePage extends BasePage{
+public class ATT_LikeDislikePage<wait_timeout> extends BasePage{
     @AndroidFindBy(name = "Like")
     private WebElement likeButton;
         
@@ -39,7 +50,7 @@ public class ATT_LikeDislikePage extends BasePage{
     /**
      * check whether is at current page
      */
-    public Boolean isCurrentPage() {
+    public Boolean isCurrentPage_old() {
       	try {
       		return likeButton.isDisplayed(); 
     	}
@@ -50,6 +61,26 @@ public class ATT_LikeDislikePage extends BasePage{
         }
     }	
     
+    public Boolean isCurrentPage(int wait_timeout) { //fluent wait method - more flexible, user can pass in wait_timeout to specify how long to wait for certain web element to appear
+    	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
+    			.withTimeout(wait_timeout, TimeUnit.SECONDS)
+    			.pollingEvery(5, TimeUnit.SECONDS)
+    			.ignoring(NoSuchElementException.class);
+    	try {
+    		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
+    			public WebElement apply(WebDriver d) {
+    				WebElement likeButton_obj = d.findElement(By.name("Like"));
+    				System.out.println("likeButton found"); 
+    				return likeButton_obj;
+    			}
+    		});
+    		return true;
+    	} catch (TimeoutException t) {
+    		System.out.println("Did not find the Like Button within fluent wait time");  
+    		return false;
+    	}
+    }	
+
 	public void clickLikeButton() {
 		likeButton.click();
 	}

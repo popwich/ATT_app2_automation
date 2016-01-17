@@ -51,7 +51,7 @@ public class ATT_HomePageTest extends TestBase {
      */
     @Test
     public void testATTHambugerMenu() {
-       	Assert.assertTrue(ATT_HomePage.isCurrentPage());
+       	Assert.assertTrue(ATT_HomePage.isCurrentPage(30));
     }
 
     @Override

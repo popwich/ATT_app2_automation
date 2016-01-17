@@ -98,11 +98,11 @@ public class ATT_ForeseeTest extends TestBase {
     		//login 6 times
     		loginPage.loginInByStoredCredential();
     		homePage = loginPage.returnHomePage();   
-    		Assert.assertTrue(homePage.isCurrentPage());
+    		Assert.assertTrue(homePage.isCurrentPage(30));
     		System.out.println("login loop " + i + " SuccessFully");  
 
     		//logout
-    		if (homePage.isCurrentPage()) 
+    		if (homePage.isCurrentPage(30)) 
     		{
     			try {
     				homePage.pressMenu();
@@ -120,7 +120,7 @@ public class ATT_ForeseeTest extends TestBase {
     	//login 7th time  	     
     	loginPage.loginInByStoredCredential();
     	homePage = loginPage.returnHomePage();   
-    	Assert.assertTrue(homePage.isCurrentPage());
+    	Assert.assertTrue(homePage.isCurrentPage(30));
     	System.out.println("login loop " + "7" + " SuccessFully");  
 
     	//logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
@@ -208,7 +208,7 @@ public class ATT_ForeseeTest extends TestBase {
     	ratesubpage = likesubpage.returnRateSubPage();
     	
     	//assert click rate leads to app store (if we are not at hamburgermenu page or homepage, then we must be outside DL app2.0
-    	Assert.assertFalse((hamburgerMenuPage.isCurrentPage() | homePage.isCurrentPage()));    	    	
+    	Assert.assertFalse((hamburgerMenuPage.isCurrentPage() | homePage.isCurrentPage(30)));    	    	
     }
     
     @Test

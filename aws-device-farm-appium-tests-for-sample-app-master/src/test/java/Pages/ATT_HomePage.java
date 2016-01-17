@@ -15,9 +15,19 @@
 
 package Pages;
 
+import java.util.concurrent.TimeUnit;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.FluentWait;
+
+import com.google.common.base.Function;
 
 /**
  * A page representing a static homepage
@@ -51,7 +61,7 @@ public class ATT_HomePage extends BasePage{
     /**
      * check whether is at current page
      */
-    public Boolean isCurrentPage() {
+    public Boolean isCurrentPage_old() {
      	try {
      		 return hamburger_menu.isDisplayed(); //return true if hamburger_menu is displayed
     	}
@@ -62,6 +72,30 @@ public class ATT_HomePage extends BasePage{
         }       
     }    
    
+    
+    /**
+     * check whether is at current page - fluent wait check
+     */   
+    public Boolean isCurrentPage(int wait_timeout) { //fluent wait method - more flexible, user can pass in wait_timeout to specify how long to wait for certain web element to appear
+    	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
+    			.withTimeout(wait_timeout, TimeUnit.SECONDS)
+    			.pollingEvery(5, TimeUnit.SECONDS)
+    			.ignoring(NoSuchElementException.class);
+    	try {
+    		Object interval = pwait.until(new Function<WebDriver, WebElement>() {
+    			public WebElement apply(WebDriver d) {
+    				WebElement rateButton_obj = d.findElement(By.id("android:id/home"));
+    				System.out.println("home icon found"); 
+    				return rateButton_obj;
+    			}
+    		});
+    		return true;
+    	} catch (TimeoutException t) {
+    		System.out.println("Did not find the home icon within fluent wait time");  
+    		return false;
+    	}
+    }
+    
 	public void pressMenu() {
 		hamburger_menu.click();		
 	}	

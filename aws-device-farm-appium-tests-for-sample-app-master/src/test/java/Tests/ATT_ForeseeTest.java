@@ -105,6 +105,7 @@ public class ATT_ForeseeTest extends TestBase {
     		if (homePage.isCurrentPage(90)) 
     		{
     			try {
+    				Thread.sleep(2000); //wait 2sec before click on menu to start sign out process
     				homePage.pressMenu();
     				hamburgerMenuPage = homePage.returnHamburgerMenuPage();
     				hamburgerMenuPage.signout();

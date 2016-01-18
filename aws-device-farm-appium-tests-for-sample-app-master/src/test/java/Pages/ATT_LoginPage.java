@@ -75,7 +75,7 @@ public class ATT_LoginPage extends BasePage {
     public void loginInByStoredCredential(boolean firstLogin){
 
     	try {
-        	if (driver.findElementById("com.att.digitallife.android.phone22:id/userName").isDisplayed())
+        	if (driver.findElementById("com.att.digitallife.android.phone22:id/button_sign_in").isDisplayed())
             {   //swipe up no matter what to take care android tab small login window problem
            		Dimension size = driver.manage().window().getSize(); 
         		int starty = (int) ( (size.height /2) +  80); 
@@ -88,7 +88,7 @@ public class ATT_LoginPage extends BasePage {
         		pickButton.click(); 
         		driver.findElementByName("QA2: qayandroid31").click(); 
         		loginButton.click(); 
-        		System.out.println("LoginPage: Logged in successfully.");      
+        		System.out.println("LoginPage: starting Logged in procedure");      
         		Thread.sleep(3000);
             }        	
         }

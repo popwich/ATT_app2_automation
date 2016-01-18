@@ -87,7 +87,7 @@ public abstract class TestBase {
         driver = new AndroidDriver<MobileElement>(url, new DesiredCapabilities());
 
         //Use a higher value if your mobile elements take time to show up
-        driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }      
       
 

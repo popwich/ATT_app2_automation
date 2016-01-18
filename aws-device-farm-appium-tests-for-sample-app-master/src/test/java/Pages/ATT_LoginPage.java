@@ -67,7 +67,8 @@ public class ATT_LoginPage extends BasePage {
         		driver.findElementById("com.att.digitallife.android.phone22:id/serverPicker").click(); 
         		driver.findElementByName("QA2: qayandroid31").click(); 
         		loginButton.click(); 
-        		System.out.println("LoginPage: Logged in succesfully.");          		       		
+        		System.out.println("LoginPage: Logged in successfully.");      
+        		Thread.sleep(3000);
             }        	
         }
         catch (Exception e){
@@ -93,19 +94,19 @@ public class ATT_LoginPage extends BasePage {
         		{
         			driver.findElementById("com.att.digitallife.android.phone22:id/btnGotIt").click();
         		}        		
-        		System.out.println("ivPhotoView cleared succesfully.");   
+        		System.out.println("ivPhotoView cleared successfully.");   
         		
         		if (driver.findElementByName("What's New!").isDisplayed())
         		{
         			driver.findElementById("com.att.digitallife.android.phone22:id/btnConfirmationDialogOK").click();
         		}        		
-        		System.out.println("whatsnew page cleared succesfully.");   
+        		System.out.println("whatsnew page cleared successfully.");   
         		
         		if (driver.findElementByName("Notifications").isDisplayed())
         		{
         			driver.findElementByName("Yes").click();
         		}        		
-        		System.out.println("notification page cleared succesfully.");          		
+        		System.out.println("notification page cleared successfully.");          		
             }        	
         }
         catch (Exception e){

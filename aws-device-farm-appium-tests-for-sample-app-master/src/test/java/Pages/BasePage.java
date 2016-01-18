@@ -33,6 +33,7 @@ public abstract class BasePage {
      * The driver
      */
     protected final AppiumDriver driver;
+    //protected final AndroidDriver androiddriver;
 
     /**
      * A base constructor that sets the page's driver
@@ -47,6 +48,6 @@ public abstract class BasePage {
      */
     protected BasePage(AppiumDriver driver){
         this.driver = driver;
-        PageFactory.initElements(new AppiumFieldDecorator(driver, 15, TimeUnit.SECONDS), this);
+        PageFactory.initElements(new AppiumFieldDecorator(driver, 30, TimeUnit.SECONDS), this);
     }
 }

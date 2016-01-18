@@ -18,7 +18,9 @@ package Pages;
 import java.util.concurrent.TimeUnit;
 
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.*;
 import io.appium.java_client.pagefactory.AndroidFindBy;
+import io.appium.java_client.pagefactory.WithTimeout;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -33,8 +35,8 @@ import com.google.common.base.Function;
  * A page representing a static homepage
  */
 public class ATT_HomePage extends BasePage{
-
-    /**
+	
+	 /**
      * The headline of the homepage
      */
     @AndroidFindBy(id = "android:id/action_bar_title")
@@ -43,6 +45,7 @@ public class ATT_HomePage extends BasePage{
     /**
      * the hamburger menu of the homepage
      */
+    @WithTimeout(time = 20, unit = TimeUnit.SECONDS) //overrides default appium driver timeout of 15secs
     @AndroidFindBy(id = "android:id/home")
     private WebElement hamburger_menu;
 
@@ -77,6 +80,9 @@ public class ATT_HomePage extends BasePage{
      * check whether is at current page - fluent wait check
      */   
     public Boolean isCurrentPage(int wait_timeout) { //fluent wait method - more flexible, user can pass in wait_timeout to specify how long to wait for certain web element to appear
+    	
+    	// new UiObject().waitUntilGone     	    	
+    	
     	FluentWait<WebDriver> pwait = new FluentWait<WebDriver>(driver)
     			.withTimeout(wait_timeout, TimeUnit.SECONDS)
     			.pollingEvery(5, TimeUnit.SECONDS)

@@ -114,7 +114,7 @@ public abstract class TestBase {
        }
         catch (Exception e){
         	e.getMessage();
-        	System.out.println(e);   
+        	System.out.println("Expected exception occurred: " + e);   
         }
         
         //login
@@ -129,7 +129,7 @@ public abstract class TestBase {
         }
         catch (Exception e){
         	e.getMessage();
-        	System.out.println(e);   
+        	System.out.println("Expected exception occurred: " + e);   
         }    
         
     	  //clear ivPhotoview, whatsnew & notification page
@@ -144,25 +144,26 @@ public abstract class TestBase {
         		Thread.sleep(1000);
         		driver.swipe(startx, starty, endx, starty, 1000);     
         		Thread.sleep(1000);
-        		driver.swipe(startx, starty, endx, starty, 1000);     
+        		driver.swipe(startx, starty, endx, starty, 1000);    
+        		Thread.sleep(1000);
         		
         		if (driver.findElementById("com.att.digitallife.android.phone22:id/btnGotIt").isDisplayed())
         		{
         			driver.findElementById("com.att.digitallife.android.phone22:id/btnGotIt").click();
         		}        		
-        		System.out.println("ivPhotoView cleared succesfully.");   
+        		System.out.println("ivPhotoView cleared successfully.");   
         		
         		if (driver.findElementByName("What's New!").isDisplayed())
         		{
         			driver.findElementById("com.att.digitallife.android.phone22:id/btnConfirmationDialogOK").click();
         		}        		
-        		System.out.println("whatsnew page cleared succesfully.");   
+        		System.out.println("whatsnew page cleared successfully.");   
         		
         		if (driver.findElementByName("Notifications").isDisplayed())
         		{
         			driver.findElementByName("Yes").click();
         		}        		
-        		System.out.println("notification page cleared succesfully.");          		
+        		System.out.println("notification page cleared successfully.");          		
             }        	
         }
         catch (Exception e){

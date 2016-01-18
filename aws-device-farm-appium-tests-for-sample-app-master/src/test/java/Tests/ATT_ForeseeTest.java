@@ -65,7 +65,7 @@ public class ATT_ForeseeTest extends TestBase {
     @BeforeTest
     @Override
     public void setUpPage() {
-        loginPage = new ATT_LoginPage(driver);
+        loginPage = new ATT_LoginPage(driver);        
     }
     
     @BeforeClass
@@ -78,7 +78,7 @@ public class ATT_ForeseeTest extends TestBase {
           }
            catch (Exception e){
            	e.getMessage();
-           	System.out.println(e);   
+           	System.out.println("Expected exception occurred: " + e);   
            }
     }
        
@@ -91,24 +91,29 @@ public class ATT_ForeseeTest extends TestBase {
           }
            catch (Exception e){
            	e.getMessage();
-           	System.out.println(e);   
+           	System.out.println("Expected exception occurred: " + e);   
            }    	
     	
     	for (int i=1; i<7; i++) { 
     		//login 6 times
     		loginPage.loginInByStoredCredential();
     		homePage = loginPage.returnHomePage();   
-    		Assert.assertTrue(homePage.isCurrentPage(30));
+    		
+    		//wait till login 'loading...' page not there - tbd
+    		//driver.findElementByAndroidUIAutomator("new UiSelector().clickable(true)");
+    		 
+    		Assert.assertTrue(homePage.isCurrentPage(90));
     		System.out.println("login loop " + i + " SuccessFully");  
 
     		//logout
-    		if (homePage.isCurrentPage(30)) 
+    		if (homePage.isCurrentPage(90)) 
     		{
     			try {
     				homePage.pressMenu();
     				hamburgerMenuPage = homePage.returnHamburgerMenuPage();
     				hamburgerMenuPage.signout();
     				System.out.println("logout loop " + i + " SuccessFully");  
+    				Thread.sleep(1000);
     			}
     			catch (Exception e){
     				e.getMessage();
@@ -120,7 +125,7 @@ public class ATT_ForeseeTest extends TestBase {
     	//login 7th time  	     
     	loginPage.loginInByStoredCredential();
     	homePage = loginPage.returnHomePage();   
-    	Assert.assertTrue(homePage.isCurrentPage(30));
+    	Assert.assertTrue(homePage.isCurrentPage(90));
     	System.out.println("login loop " + "7" + " SuccessFully");  
 
     	//logged in at 7th time already, now we can arm or disarm the system to trigger the foresee
@@ -326,5 +331,11 @@ public class ATT_ForeseeTest extends TestBase {
     //reset app in AfterMethod for Foresee test only 
     public void restartApp() {
         driver.resetApp();
+        try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}        
     }
 }

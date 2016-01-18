@@ -18,6 +18,7 @@ package Tests.AbstractBaseTests;
 
 import io.appium.java_client.AppiumDriver;
 
+import Pages.ATT_LoginPage;
 import Pages.NavigationPage;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
@@ -38,6 +39,8 @@ import java.util.concurrent.TimeUnit;
  * Responsible for setting up the Appium test Driver
  */
 public abstract class TestBase {
+	private ATT_LoginPage loginPage;
+	
     /**
      * Make the driver static. This allows it to be created only once
      * and used across all of the test classes.
@@ -87,7 +90,7 @@ public abstract class TestBase {
         driver = new AndroidDriver<MobileElement>(url, new DesiredCapabilities());
 
         //Use a higher value if your mobile elements take time to show up
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(45, TimeUnit.SECONDS);
     }      
       
 
@@ -107,7 +110,7 @@ public abstract class TestBase {
      */
     @BeforeClass
     public void navigateTo() throws InterruptedException {
-    	
+    	//clear license agreement page if there is 1
         try {
         	if (driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").isDisplayed())
             {driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").click(); }
@@ -118,21 +121,11 @@ public abstract class TestBase {
         }
         
         //login
-        try {
-        	if (driver.findElementById("com.att.digitallife.android.phone22:id/userName").isDisplayed())
-            {        		
-        		driver.findElementById("com.att.digitallife.android.phone22:id/serverPicker").click(); 
-        		driver.findElementByName("QA1: qayqa33mickey").click(); 
-        		driver.findElementById("com.att.digitallife.android.phone22:id/button_sign_in").click(); 
-        		System.out.println("Logged in succesfully.");          		       		
-            }        	
-        }
-        catch (Exception e){
-        	e.getMessage();
-        	System.out.println("Expected exception occurred: " + e);   
-        }    
-        
-    	  //clear ivPhotoview, whatsnew & notification page
+        loginPage = new ATT_LoginPage(driver);  
+        loginPage.loginInByStoredCredential(true);
+        System.out.println("Logged in succesfully.");     
+
+    	//clear ivPhotoview, whatsnew & notification page
         try {
         	if (driver.findElementById("com.att.digitallife.android.phone22:id/ivPhotoView").isDisplayed())
             {   

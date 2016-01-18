@@ -74,7 +74,7 @@ public class ATT_LoginTest extends TestBase {
      */
     @Test
     public void login1_SuccessFully(){
-        loginPage.loginInByStoredCredential();
+        loginPage.loginInByStoredCredential(false);
         homePage = loginPage.returnHomePage();   
         Assert.assertTrue(homePage.isCurrentPage(30));
         System.out.println("loginSuccessFully test done");   

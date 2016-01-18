@@ -71,15 +71,8 @@ public class ATT_ForeseeTest extends TestBase {
     @BeforeClass
     @Override
     public void navigateTo() {
-    	//clear license agreement page if there is 1
-    	try {
-           	if (driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").isDisplayed())
-               {driver.findElementById("com.att.digitallife.android.phone22:id/acceptEULAButton").click(); }
-          }
-           catch (Exception e){
-           	e.getMessage();
-           	System.out.println("Expected exception occurred: " + e);   
-           }
+    	//do nothing, just to overwrite TestBase's beforeClass
+     	System.out.println("ATT_ForeseeTest beforeClass, do nothing ");   
     }
        
     @BeforeMethod
@@ -92,16 +85,19 @@ public class ATT_ForeseeTest extends TestBase {
            catch (Exception e){
            	e.getMessage();
            	System.out.println("Expected exception occurred: " + e);   
-           }    	
-    	
+           }
+    	    	
     	for (int i=1; i<7; i++) { 
-    		//login 6 times
-    		loginPage.loginInByStoredCredential();
+    		//login and logout 6 times
+    		boolean firstLogin = false;
+    		if (i==1) {
+    			firstLogin = true; 
+    		}
+    			
+    		loginPage.loginInByStoredCredential(firstLogin);
     		homePage = loginPage.returnHomePage();   
-    		
     		//wait till login 'loading...' page not there - tbd
     		//driver.findElementByAndroidUIAutomator("new UiSelector().clickable(true)");
-    		 
     		Assert.assertTrue(homePage.isCurrentPage(90));
     		System.out.println("login loop " + i + " SuccessFully");  
 
@@ -123,7 +119,7 @@ public class ATT_ForeseeTest extends TestBase {
     	}
 
     	//login 7th time  	     
-    	loginPage.loginInByStoredCredential();
+    	loginPage.loginInByStoredCredential(false);
     	homePage = loginPage.returnHomePage();   
     	Assert.assertTrue(homePage.isCurrentPage(90));
     	System.out.println("login loop " + "7" + " SuccessFully");  
@@ -181,7 +177,15 @@ public class ATT_ForeseeTest extends TestBase {
     	catch (Exception e){
     		e.getMessage();
     		System.out.println(e);
-    	}	     
+    	}	  
+    	    	
+    	//wait 10sec for arming/disarming process
+    	try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }          
         
     /**********************************************/
@@ -195,7 +199,7 @@ public class ATT_ForeseeTest extends TestBase {
     	System.out.println("userLike_rate test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
-    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(90));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
     	//assert headline of likeDislikePage
@@ -222,7 +226,7 @@ public class ATT_ForeseeTest extends TestBase {
     	System.out.println("userLike_remindmelater test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
-    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(90));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
     	//assert headline of likeDislikePage
@@ -246,7 +250,7 @@ public class ATT_ForeseeTest extends TestBase {
     	System.out.println("userLike_nothanks test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
-    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(90));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
     	//assert headline of likeDislikePage
@@ -274,7 +278,7 @@ public class ATT_ForeseeTest extends TestBase {
     	System.out.println("userDislike_nothanks test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
-    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(90));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
     	//assert headline of likeDislikePage
@@ -298,7 +302,7 @@ public class ATT_ForeseeTest extends TestBase {
     	System.out.println("userDislike_yeshelp test");  
     	likeDislikePage = hamburgerMenuPage.returnLikeDislikePage();   
     	//wait for likedislike page to appear
-    	Assert.assertTrue(likeDislikePage.isCurrentPage(60));	//fluent wait used inside likeDislike Page		
+    	Assert.assertTrue(likeDislikePage.isCurrentPage(90));	//fluent wait used inside likeDislike Page		
     	System.out.println("LikeDislike page appeared");  
     	
     	//assert headline of likeDislikePage
@@ -314,7 +318,7 @@ public class ATT_ForeseeTest extends TestBase {
     	//click yeshelp button, go to foresee survey page
     	dislikesubpage.clickYesHelpButton();
     	yeshelpubpage = dislikesubpage.returnYeshelpSubPage();
-    	Assert.assertTrue(yeshelpubpage.isCurrentPage(30)); 
+    	Assert.assertTrue(yeshelpubpage.isCurrentPage(60)); 
     	
     	//assert headline of yeshelpubpage
     	Assert.assertEquals(yeshelpubpage.getHeadlineValue(), ATT_YeshelpSubPage_HEADLINE);    	  		

@@ -135,7 +135,7 @@ public class ATT_HamburgerMenuPage extends BasePage{
      */
     public Boolean isCurrentPage() {
      	try {
-     		 return (menuHome.isDisplayed() & menuDevices.isDisplayed()); //return true if both home and devices menu are displayed
+     		 return (menuMyaccount.isDisplayed() & menuSignout.isDisplayed()); //return true if both home and devices menu are displayed
     	}
     	catch (Exception e){
          	e.getMessage();

@@ -94,6 +94,13 @@ public class ATT_ForeseeTest extends TestBase {
     			firstLogin = true; 
     		}
     			
+    		try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} 
+    		
     		loginPage.loginInByStoredCredential(firstLogin);
     		homePage = loginPage.returnHomePage();   
     		//wait till login 'loading...' page not there - tbd
@@ -101,16 +108,24 @@ public class ATT_ForeseeTest extends TestBase {
     		Assert.assertTrue(homePage.isCurrentPage(90));
     		System.out.println("login loop " + i + " SuccessFully");  
 
+    		try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}     		
+    		
     		//logout
     		if (homePage.isCurrentPage(90)) 
     		{
     			try {
     				Thread.sleep(2000); //wait 2sec before click on menu to start sign out process
     				homePage.pressMenu();
+    				Thread.sleep(5000);
     				hamburgerMenuPage = homePage.returnHamburgerMenuPage();
     				hamburgerMenuPage.signout();
     				System.out.println("logout loop " + i + " SuccessFully");  
-    				Thread.sleep(1000);
+    				Thread.sleep(5000);
     			}
     			catch (Exception e){
     				e.getMessage();
